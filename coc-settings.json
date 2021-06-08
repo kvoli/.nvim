@@ -1,0 +1,36 @@
+{
+  "languageserver": {
+    "clangd": {
+      "command": "clangd",
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+    },
+    "zls": {
+      "command": "zls",
+      "filetypes": ["zig"]
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "disableWorkspaceFolders": true,
+      "filetypes": ["go"]
+    },
+    "solidity": {
+      "command": "~/solc-linux64",
+      "args": [ "--lsp" ],
+      "trace.server": "verbose",
+      "rootPatterns": [".git/"],
+      "filetypes": ["solidity"]
+    }
+  },
+  "coc.source.vimtex.priority": 5,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "tsserver.formatOnType": true,
+  "coc.preferences.formatOnType": true,
+  "eslint.autoFixOnSave": true,
+}
