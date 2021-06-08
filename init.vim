@@ -1,7 +1,6 @@
 source $HOME/.config/nvim/conf/settings.vim
 source $HOME/.config/nvim/conf/mappings.vim
 source $HOME/.config/nvim/conf/plugins.vim
-source $HOME/.config/nvim/conf/functions.vim
 source $HOME/.config/nvim/conf/complete.vim
 source $HOME/.config/nvim/conf/start-screen.vim
 source $HOME/.config/nvim/conf/tex.vim
