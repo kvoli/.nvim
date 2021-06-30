@@ -28,9 +28,17 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "golang",
+    "c",
+    "cc",
+    "cpp",
+    "c++",
+    "rs",
+    "el"
   ],
   "tsserver.formatOnType": true,
-  "coc.preferences.formatOnType": true,
   "eslint.autoFixOnSave": true,
+  "prettier.singleQuote": true,
+  "prettier.semi": false
 }

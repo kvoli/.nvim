@@ -87,3 +87,10 @@ nmap <leader>7 <Plug>BufTabLine.Go(7)
 nmap <leader>8 <Plug>BufTabLine.Go(8)
 nmap <leader>9 <Plug>BufTabLine.Go(9)
 nmap <leader>0 <Plug>BufTabLine.Go(10)
+
+" set up coc-prettier command
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" Map coc-prettier to <leader>-f in vis/normal
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
