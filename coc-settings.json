@@ -38,7 +38,5 @@
     "el"
   ],
   "tsserver.formatOnType": true,
-  "eslint.autoFixOnSave": true,
-  "prettier.singleQuote": true,
-  "prettier.semi": false
+  "eslint.autoFixOnSave": true
 }

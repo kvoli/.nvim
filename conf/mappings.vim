@@ -94,3 +94,6 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Map coc-prettier to <leader>-f in vis/normal
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+" Autoformat on 
+nmap <Leader>g :Autoformat<CR>
