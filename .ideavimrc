@@ -64,7 +64,6 @@ map <C-s-d> :action ToggleDistractionFreeMode <CR>
 map <C-s-j> :action MoveEditorToOppositeTabGroup<CR>
 map <C-s-k> :action MoveEditorToOppositeTabGroup<CR>
 
-
 " map shift-
 map <Leader>1 :action GoToTab1<CR>
 map <Leader>2 :action GoToTab2<CR>
@@ -81,11 +80,13 @@ map <Leader>u :action GotoSuperMethod<CR>
 map <Leader>f :action ReformatCode<CR>
 
 " run & debug
-map <Leader>b :action Debug<CR> "debug
-map <Leader>r :action Run<CR> "run
-map <Leader>c :action RunClass<CR> "run class
-map <Leader>d :action DebugClass<CR> "debug class
-map <Leader>t :action ReRunTests<CR> "run tests
-map <Leader>T :action ReRunFailedTests<CR> "rerun failed Tests
+map <Leader>b :action Debug<CR>
+map <Leader>r :action Run<CR>
+map <Leader>c :action RunClass<CR>
+map <Leader>d :action DebugClass<CR>
+map <Leader>t :action ReRunTests<CR>
+map <Leader>T :action ReRunFailedTests<CR>
 
-
+" zoom in/out
+map <C--> :action EditorDecreaseFontSize <CR>
+map <C-=> :action EditorIncreaseFontSize <CR>
