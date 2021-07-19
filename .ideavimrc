@@ -1,4 +1,5 @@
-let g:mapleader = "\<Space>"
+let mapleader = "\<Space>"
+nmap "\<Space>" ,
 
 set relativenumber                      " set relative numbering
 set hidden                              " to enable multi
@@ -57,12 +58,12 @@ map <C-s-w> :action CloseEditor<CR>
 map <C-e> :action RecentFiles<CR>
 map <C-n> :action GotoClass<CR>
 
-map <Leader>s :action SaveAll<CR>
-map <Leader>u :action GotoSuperMethod<CR>
-map <Leader>f :action ReformatCode<CR>
+" distraction free
+map <C-s-d> :action ToggleDistractionFreeMode <CR>
 
 map <C-s-j> :action MoveEditorToOppositeTabGroup<CR>
 map <C-s-k> :action MoveEditorToOppositeTabGroup<CR>
+
 
 " map shift-
 map <Leader>1 :action GoToTab1<CR>
@@ -74,3 +75,17 @@ map <Leader>6 :action GoToTab6<CR>
 map <Leader>7 :action GoToTab7<CR>
 map <Leader>8 :action GoToTab8<CR>
 map <Leader>9 :action GoToTab9<CR>
+
+map <Leader>s :action SaveAll<CR>
+map <Leader>u :action GotoSuperMethod<CR>
+map <Leader>f :action ReformatCode<CR>
+
+" run & debug
+map <Leader>b :action Debug<CR> "debug
+map <Leader>r :action Run<CR> "run
+map <Leader>c :action RunClass<CR> "run class
+map <Leader>d :action DebugClass<CR> "debug class
+map <Leader>t :action ReRunTests<CR> "run tests
+map <Leader>T :action ReRunFailedTests<CR> "rerun failed Tests
+
+
