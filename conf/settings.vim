@@ -4,7 +4,7 @@ syntax enable                           " Enables syntax highlighing
 
 highlight VertSplit cterm=NONE          " rm vertical split
 highlight HorizontalSplit cterm=NONE    " rm horizontal split
-au BufWrite * :Autoformat               " format on write
+"au BufWrite * :Autoformat               " format on write
 
 set relativenumber                      " set relative numbering
 set hidden                              " to enable multi

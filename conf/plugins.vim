@@ -31,5 +31,9 @@ Plug 'TovarishFin/vim-solidity'
 Plug 'tpope/vim-surround'
 Plug 'ap/vim-buftabline'
 Plug 'ziglang/zig.vim'
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'vimsence/vimsence'
+
 
 call plug#end()

@@ -90,3 +90,9 @@ map <Leader>T :action ReRunFailedTests<CR>
 " zoom in/out
 map <C--> :action EditorDecreaseFontSize <CR>
 map <C-=> :action EditorIncreaseFontSize <CR>
+
+"misc"
+map <C-b> :action Back <CR>
+map <C-q> :action CodeMenu <CR>
+map <a-i> :action generate <CR>
+

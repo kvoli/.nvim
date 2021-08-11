@@ -8,6 +8,38 @@ nnoremap <M-k>    :resize +2<CR>
 nnoremap <M-h>    :vertical resize -2<CR>
 nnoremap <M-l>    :vertical resize +2<CR>
 
+"Make Y act like the other capital letters
+nnoremap Y y$
+
+" Undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" Jumplist mutations
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+"
+" change all occurences
+nnoremap cn *``cgn
+nnoremap cN *``cgN
+
+" Center on movements
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ'z
+nnoremap } }zzzv
+nnoremap { {zzzv
+
+" Moving text
+vnoremap J :m '>+1'<CR>gv=gv
+vnoremap K :m '<-2'<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+nnoremap <leader>k :m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
+
 " Easy CAPS
 inoremap <c-u> <ESC>viwUi
 nnoremap <c-u> viwU<Esc>
@@ -58,7 +90,7 @@ map <C-p> :Files<CR>
 map <C-f> :RG<CR>
 
 " Map Nerd tree toggle
-map <C-o> :NERDTreeToggle<CR>
+map <leader>o :NERDTreeToggle<CR>
 
 " Map autocorrect for spelling
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
