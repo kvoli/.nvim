@@ -90,7 +90,7 @@ map <C-p> :Files<CR>
 map <C-f> :RG<CR>
 
 " Map Nerd tree toggle
-map <leader>o :NERDTreeToggle<CR>
+map <m-o> :NERDTreeToggle<CR>
 
 " Map autocorrect for spelling
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
@@ -129,3 +129,8 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 " Autoformat on
 nmap <Leader>g :Autoformat<CR>
+
+nnoremap [[ ?{<CR>w99[{
+nnoremap ][ /}<CR>b99]}
+nnoremap ]] j0[[%/{<CR>
+nnoremap [] k$][%?}<CR>

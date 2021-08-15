@@ -34,6 +34,7 @@ Plug 'ziglang/zig.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'vimsence/vimsence'
+Plug 'florentc/vim-tla'
 
 
 call plug#end()
