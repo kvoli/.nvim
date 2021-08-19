@@ -35,8 +35,6 @@ nnoremap { {zzzv
 " Moving text
 vnoremap J :m '>+1'<CR>gv=gv
 vnoremap K :m '<-2'<CR>gv=gv
-inoremap <C-j> <esc>:m .+1<CR>==
-inoremap <C-k> <esc>:m .-2<CR>==
 nnoremap <leader>k :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
 
@@ -89,8 +87,9 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 map <C-p> :Files<CR>
 map <C-f> :RG<CR>
 
-" Map Nerd tree toggle
-map <m-o> :NERDTreeToggle<CR>
+" Map NvimTree tree toggle
+nnoremap <m-o> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
 
 " Map autocorrect for spelling
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u

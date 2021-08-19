@@ -9,7 +9,7 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 
 Plug 'sheerun/vim-polyglot'
-Plug 'scrooloose/NERDTree'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -35,6 +35,7 @@ Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'vimsence/vimsence'
 Plug 'florentc/vim-tla'
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
 
 
 call plug#end()
