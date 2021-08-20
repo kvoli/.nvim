@@ -2,9 +2,13 @@ let g:mapleader = "\<Space>"            " set leader key
 
 syntax enable                           " Enables syntax highlighing
 
+let g:base16_shell_path="/home/kvoli/.config/base16/output/shell/"
+let base16colorspace=256  " Access colors present in 256 colorspace
+
+"au BufWrite * :Autoformat               " format on write
+
 highlight VertSplit cterm=NONE          " rm vertical split
 highlight HorizontalSplit cterm=NONE    " rm horizontal split
-"au BufWrite * :Autoformat               " format on write
 
 set relativenumber                      " set relative numbering
 set hidden                              " to enable multi
@@ -42,6 +46,23 @@ set undodir=~/.config/nvim/undo/        " set local change dir for undo plug
 set undofile                            " set undo on
 let g:polyglot_disabled = ['solidity']  " set disabled syntax hightlighting for solidity smart contracts
 
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
+
+function! s:base16_customize() abort
+  call Base16hi("VertSplit", g:base16_gui00, g:base16_gui00, g:base16_cterm00, g:base16_cterm00, "", "")
+  call Base16hi("HorizontalSplit", g:base16_gui00, g:base16_gui00, g:base16_cterm00, g:base16_cterm00, "", "")
+  call Base16hi("LineNr", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
+  call Base16hi("CursorLineNr", g:base16_gui06, g:base16_gui00, g:base16_cterm06, g:base16_cterm00, "", "")
+endfunction
+
+augroup on_change_colorschema
+  autocmd!
+  autocmd ColorScheme * call s:base16_customize()
+augroup END
 
 autocmd VimEnter * hi Normal ctermbg=none
-autocmd vimenter * ++nested colorscheme wal
+autocmd vimenter * ++nested colorscheme void-bear

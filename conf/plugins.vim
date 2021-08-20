@@ -36,6 +36,7 @@ Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'vimsence/vimsence'
 Plug 'florentc/vim-tla'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'chriskempson/base16-vim'
 
 
 call plug#end()
