@@ -89,7 +89,6 @@ map <C-f> :RG<CR>
 
 " Map NERDTree tree toggle
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-s-n> :NERDTreeFind<CR>
 
 " Map autocorrect for spelling
@@ -134,3 +133,6 @@ nnoremap [[ ?{<CR>w99[{
 nnoremap ][ /}<CR>b99]}
 nnoremap ]] j0[[%/{<CR>
 nnoremap [] k$][%?}<CR>
+
+" Tagbar
+nmap <C-t> :TagbarToggle<CR>

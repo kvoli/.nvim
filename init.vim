@@ -9,3 +9,4 @@ source $HOME/.config/nvim/conf/buftabline.vim
 source $HOME/.config/nvim/conf/neovide.vim
 source $HOME/.config/nvim/conf/discord.vim
 source $HOME/.config/nvim/conf/nerdtree.vim
+source $HOME/.config/nvim/conf/ctags.vim

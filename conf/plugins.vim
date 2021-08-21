@@ -34,6 +34,9 @@ Plug 'ziglang/zig.vim'
 Plug 'vimsence/vimsence'
 Plug 'florentc/vim-tla'
 Plug 'chriskempson/base16-vim'
+Plug 'majutsushi/tagbar'
+Plug 'ternjs/tern_for_vim'
+Plug 'rust-lang/rust.vim'
 
 
 call plug#end()
