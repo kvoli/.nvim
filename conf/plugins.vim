@@ -37,6 +37,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'majutsushi/tagbar'
 Plug 'ternjs/tern_for_vim'
 Plug 'rust-lang/rust.vim'
+Plug 'vim-syntastic/syntastic'
 
 
 call plug#end()
