@@ -87,15 +87,16 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 map <C-p> :Files<CR>
 map <C-f> :RG<CR>
 
-" Map NvimTree tree toggle
-nnoremap <m-o> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
+" Map NERDTree tree toggle
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-s-n> :NERDTreeFind<CR>
 
 " Map autocorrect for spelling
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-" Map normal
-vnoremap <C-n> :norm
+"" Map normal
+"vnoremap <C-n> :norm
 
 " Map undo tree toggle
 nnoremap <C-0> :UndotreeToggle<CR>
