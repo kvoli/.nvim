@@ -9,6 +9,7 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 map <C-n> :call NERDTreeToggleAndRefresh()<CR>
+map <m-o> :call NERDTreeToggleAndRefresh()<CR>
 
 function NERDTreeToggleAndRefresh()
   :NERDTreeToggle
