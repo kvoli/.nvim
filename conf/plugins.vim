@@ -71,11 +71,16 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " debug
     Plug 'mfussenegger/nvim-dap'
     Plug 'nvim-telescope/telescope-dap.nvim'
+    Plug 'rcarriga/nvim-dap-ui'
+    Plug 'theHamsta/nvim-dap-virtual-text'
 
     " github
     Plug 'pwntester/octo.nvim'
 
     " pops
     Plug 'nvim-lua/popup.nvim'
+
+    " Browser!
+    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 call plug#end()
