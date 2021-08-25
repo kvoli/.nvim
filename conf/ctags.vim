@@ -1,6 +1,6 @@
 
 let g:tagbar_type_zig = {
-    \ 'ctagstype': 'Zig',
+    \ 'ctagstype': 'zig',
     \ 'kinds' : [
         \'f:functions',
         \'s:structs',

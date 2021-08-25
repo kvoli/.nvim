@@ -1,7 +1,3 @@
-" Better nav for omnicomplete
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
-
 " Use alt + hjkl to resize windows
 nnoremap <M-j>    :resize -2<CR>
 nnoremap <M-k>    :resize +2<CR>
@@ -52,8 +48,6 @@ nnoremap <M-w> :bd<CR>
 
 " Use control-c instead of escape
 nnoremap <C-c> <Esc>
-" <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Better tabbing
 vnoremap < <gv
@@ -82,10 +76,6 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-" fzf fd + fzf rg
-map <C-p> :Files<CR>
-map <C-f> :RG<CR>
 
 " Map NERDTree tree toggle
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -118,16 +108,6 @@ nmap <leader>7 <Plug>BufTabLine.Go(7)
 nmap <leader>8 <Plug>BufTabLine.Go(8)
 nmap <leader>9 <Plug>BufTabLine.Go(9)
 nmap <leader>0 <Plug>BufTabLine.Go(10)
-
-" set up coc-prettier command
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-" Map coc-prettier to <leader>-f in vis/normal
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Autoformat on
-nmap <Leader>g :Autoformat<CR>
 
 nnoremap [[ ?{<CR>w99[{
 nnoremap ][ /}<CR>b99]}

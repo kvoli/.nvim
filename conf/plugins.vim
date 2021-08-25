@@ -8,35 +8,74 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-Plug 'sheerun/vim-polyglot'
-Plug 'preservim/nerdtree'
-Plug 'jiangmiao/auto-pairs'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'mhinz/vim-startify'
-Plug 'honza/vim-snippets'
-Plug 'lervag/vimtex'
-Plug 'antoinemadec/coc-fzf'
-Plug 'mbbill/undotree'
-Plug 'chiel92/vim-autoformat'
-Plug 'scrooloose/nerdcommenter'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'TovarishFin/vim-solidity'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'ap/vim-buftabline'
-Plug 'ziglang/zig.vim'
-Plug 'florentc/vim-tla'
-Plug 'chriskempson/base16-vim'
-Plug 'majutsushi/tagbar'
-Plug 'ternjs/tern_for_vim'
-Plug 'rust-lang/rust.vim'
-Plug 'vim-syntastic/syntastic'
+    " startpage
+    Plug 'mhinz/vim-startify'
 
+    " misc
+    Plug 'tpope/vim-fugitive'
+    Plug 'preservim/nerdtree'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'mbbill/undotree'
+    Plug 'tpope/vim-surround'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'chiel92/vim-autoformat'
+
+    " tabs/buffers
+    Plug 'ap/vim-buftabline'
+
+    " theme
+    Plug 'chriskempson/base16-vim'
+
+    " ctags
+    Plug 'majutsushi/tagbar'
+    Plug 'ternjs/tern_for_vim'
+
+    " languages
+    Plug 'lervag/vimtex'
+    Plug 'simrat39/rust-tools.nvim'
+    Plug 'ziglang/zig.vim'
+    Plug 'florentc/vim-tla'
+    Plug 'peitalin/vim-jsx-typescript'
+    Plug 'pangloss/vim-javascript'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+
+    " syntax
+    Plug 'vim-syntastic/syntastic'
+    Plug 'sheerun/vim-polyglot'
+
+    " fuzzy finder
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+
+    " snippets
+    Plug 'honza/vim-snippets'
+    Plug 'L3MON4D3/LuaSnip'
+
+    " treesitter
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/playground'
+
+    " lsp 
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'kabouzeid/nvim-lspinstall'
+
+    " lsp completion
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-nvim-lua'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'saadparwaiz1/cmp_luasnip'
+
+    " debug
+    Plug 'mfussenegger/nvim-dap'
+    Plug 'nvim-telescope/telescope-dap.nvim'
+
+    " github
+    Plug 'pwntester/octo.nvim'
+
+    " pops
+    Plug 'nvim-lua/popup.nvim'
 
 call plug#end()
