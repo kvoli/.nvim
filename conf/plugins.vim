@@ -81,6 +81,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-lua/popup.nvim'
 
     " Browser!
-    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) },  'tag': 'v0.2.6' }
 
 call plug#end()
