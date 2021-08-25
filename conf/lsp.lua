@@ -149,3 +149,5 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 require('rust-tools').setup({})
 vim.lsp.set_log_level("debug")
+-- set inlay hints
+require('rust-tools.inlay_hints').set_inlay_hints()
