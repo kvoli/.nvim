@@ -17,14 +17,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'scrooloose/nerdcommenter'
     Plug 'mbbill/undotree'
     Plug 'tpope/vim-surround'
-    Plug 'jiangmiao/auto-pairs'
+    Plug 'windwp/nvim-autopairs'
     Plug 'chiel92/vim-autoformat'
 
     " tabs/buffers
     Plug 'ap/vim-buftabline'
 
     " theme
-    Plug 'chriskempson/base16-vim'
+    Plug 'RRethy/nvim-base16'
 
     " ctags
     Plug 'majutsushi/tagbar'
@@ -59,6 +59,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " lsp 
     Plug 'neovim/nvim-lspconfig'
     Plug 'kabouzeid/nvim-lspinstall'
+    Plug 'nvim-lua/lsp_extensions.nvim'
 
     " lsp completion
     Plug 'hrsh7th/nvim-cmp'
@@ -67,6 +68,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-path'
     Plug 'saadparwaiz1/cmp_luasnip'
+    Plug 'ray-x/lsp_signature.nvim'
 
     " debug
     Plug 'mfussenegger/nvim-dap'

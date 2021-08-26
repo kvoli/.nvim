@@ -56,6 +56,7 @@ function! s:base16_customize() abort
   call Base16hi("HorizontalSplit", g:base16_gui00, g:base16_gui00, g:base16_cterm00, g:base16_cterm00, "", "")
   call Base16hi("LineNr", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
   call Base16hi("CursorLineNr", g:base16_gui06, g:base16_gui00, g:base16_cterm06, g:base16_cterm00, "", "")
+  call Base16hi("Pmenu","", g:base16_gui00, "", g:base16_cterm00, "", "")
 endfunction
 
 augroup on_change_colorschema

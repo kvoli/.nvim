@@ -26,9 +26,9 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
   -- Mappings.
   local opts = { noremap=true, silent=true }
+
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -97,10 +97,10 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
+    --['<CR>'] = cmp.mapping.confirm {
+    --  behavior = cmp.ConfirmBehavior.Replace,
+    --  select = true,
+    --},
     ['<Tab>'] = function(fallback)
       if vim.fn.pumvisible() == 1 then
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
@@ -129,7 +129,7 @@ cmp.setup {
     keyword_length = 1,
   },
   documentation = {
-    border = { '', '', '', ' ', '', '', '', ' ' },
+    border = { '+', '-', '+', '|', '+', '-', '+', '|' },
     winhighlight = 'NormalFloat:CmpDocumentation,FloatBorder:CmpDocumentationBorder',
     maxwidth = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
     maxheight = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines)),
@@ -147,7 +147,41 @@ cmp.setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
+
 require('rust-tools').setup({})
-vim.lsp.set_log_level("debug")
+
+local cfg = {
+  bind = true, -- This is mandatory, otherwise border config won't get registered.
+  doc_lines = 10, -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
+  floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
+  fix_pos = true,  -- set to true, the floating window will not auto-close until finish all parameters
+  hint_enable = false, -- virtual hint enable
+  hint_prefix = "🐼 ",  -- Panda for parameter
+  hint_scheme = "SpellRare",
+  use_lspsaga = false,  -- set to true if you want to use lspsaga popup
+  hi_parameter = "CursorLineNr", -- how your parameter will be highlight
+  max_height = 12, -- max height of signature floating_window, if content is more than max_height, you can scroll down
+  max_width = 120, -- max_width of signature floating_window, line will be wrapped if exceed max_width
+  transpancy = nil, -- set this value if you want the floating windows to be transpant (100 fully transpant), nil to disable(default)
+  handler_opts = {
+    border = "single"   -- double, single, shadow, none
+  },
+  padding = '', -- character to pad on left and right of signature can be ' ', or '|'  etc
+}
+
+require "lsp_signature".setup()
+require'lsp_signature'.on_attach(cfg, bufnr) -- no need to specify bufnr if you don't use toggle_key
+
+require('nvim-autopairs').setup{}
+
+-- autopairs support for cmp
+require("nvim-autopairs.completion.cmp").setup({
+    map_cr = true, --  map <CR> on insert mode
+    map_complete = true, -- it will auto insert `(` after select function or method item
+    fast_wrap = {},
+  })
+
+require('nvim-autopairs').enable()
+
 -- set inlay hints
 require('rust-tools.inlay_hints').set_inlay_hints()

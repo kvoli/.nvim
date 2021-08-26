@@ -10,4 +10,6 @@ source $HOME/.config/nvim/conf/nerdtree.vim
 source $HOME/.config/nvim/conf/ctags.vim
 source $HOME/.config/nvim/conf/treesitter.vim
 source $HOME/.config/nvim/conf/telescope.vim
+source $HOME/.config/nvim/conf/complete.vim
 source $HOME/.config/nvim/conf/lsp.lua
+
