@@ -22,6 +22,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'akinsho/toggleterm.nvim'
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'karb94/neoscroll.nvim'
+    Plug 'phaazon/hop.nvim'
 
     " tabs/buffers
     Plug 'ap/vim-buftabline'

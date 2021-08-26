@@ -101,3 +101,7 @@ nnoremap [] k$][%?}<CR>
 
 " Tagbar
 nmap <C-t> :TagbarToggle<CR>
+
+nmap <leader>fw :HopWord<CR>
+nmap <leader>fl :HopLine<CR>
+nmap <leader>fc :HopChar2<CR>

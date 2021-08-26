@@ -235,3 +235,5 @@ require('neoscroll').setup({
     pre_hook = nil,              -- Function to run before the scrolling animation starts
     post_hook = nil,              -- Function to run after the scrolling animation ends
 })
+
+require'hop'.setup { keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5 }
