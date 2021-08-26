@@ -1,3 +1,7 @@
+-- Bloated file! 
+-- need to split it up into lsp, completion and other.
+--
+
 local lspconfig = require('lspconfig')
 local types = require('cmp.types')
 local WIDE_HEIGHT = 40
@@ -185,3 +189,49 @@ require('nvim-autopairs').enable()
 
 -- set inlay hints
 require('rust-tools.inlay_hints').set_inlay_hints()
+
+require("toggleterm").setup{
+  -- size can be a number or function which is passed the current terminal
+  size = function(term)
+    if term.direction == "horizontal" then
+      return 15
+    elseif term.direction == "vertical" then
+      return vim.o.columns * 0.4
+    end
+  end,
+  open_mapping = [[<c-\>]],
+  hide_numbers = true, -- hide the number column in toggleterm buffers
+  shade_filetypes = {},
+  shade_terminals = true,
+  shading_factor = '1', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+  start_in_insert = true,
+  insert_mappings = true, -- whether or not the open mapping applies in insert mode
+  persist_size = true,
+  direction = 'float',
+  close_on_exit = true, -- close the terminal window when the process exits
+  shell = vim.o.shell, -- change the default shell
+  float_opts = {
+    border = 'single',
+    winblend = 3,
+    highlights = {
+      border = "Normal",
+      background = "Normal",
+    }
+  }
+}
+
+require('colorizer').setup()
+
+require('neoscroll').setup({
+    -- All these keys will be mapped to their corresponding default scrolling animation
+    mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
+                '<C-y>', '<C-e>'},
+    hide_cursor = true,          -- Hide cursor while scrolling
+    stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+    use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+    respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+    cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+    easing_function = nil,        -- Default easing function
+    pre_hook = nil,              -- Function to run before the scrolling animation starts
+    post_hook = nil,              -- Function to run after the scrolling animation ends
+})

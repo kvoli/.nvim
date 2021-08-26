@@ -19,6 +19,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-surround'
     Plug 'windwp/nvim-autopairs'
     Plug 'chiel92/vim-autoformat'
+    Plug 'akinsho/toggleterm.nvim'
+    Plug 'norcalli/nvim-colorizer.lua'
+    Plug 'karb94/neoscroll.nvim'
 
     " tabs/buffers
     Plug 'ap/vim-buftabline'
