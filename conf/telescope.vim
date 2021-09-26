@@ -1,6 +1,7 @@
 " Using Lua functions
 nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <C-f> <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <C-m-f> <cmd>lua require('telescope.builtin').live_grep({cwd = vim.fn.expand "%:p:h"})<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
@@ -16,6 +17,7 @@ nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>gs <cmd>lua require('telescope.builtin').git_status()<cr>
 
 " misc
+nnoremap my :Telescope neoclip<cr>
 nnoremap <leader>tcm <cmd>lua require('telescope.builtin').commands()<cr>
 nnoremap <leader>tcs <cmd>lua require('telescope.builtin').colorscheme()<cr>
 nnoremap <leader>tsp <cmd>lua require('telescope.builtin').spell_suggest()<cr>

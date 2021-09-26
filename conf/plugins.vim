@@ -23,6 +23,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'phaazon/hop.nvim'
 
+
     " tabs/buffers
     Plug 'ap/vim-buftabline'
 
@@ -87,5 +88,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Browser!
     Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) },  'tag': 'v0.2.6' }
+
+    " clipboard manager
+    Plug  'AckslD/nvim-neoclip.lua' 
+
 
 call plug#end()
