@@ -1,6 +1,7 @@
 -- Bloated file! 
 -- need to split it up into lsp, completion and other.
 --
+vim.g.did_load_filetypes = 1
 
 local lspconfig = require('lspconfig')
 local types = require('cmp.types')

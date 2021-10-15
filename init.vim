@@ -1,3 +1,4 @@
+lua vim.g.did_load_filetypes = 1
 source $HOME/.config/nvim/conf/settings.vim
 source $HOME/.config/nvim/conf/mappings.vim
 source $HOME/.config/nvim/conf/plugins.vim
@@ -11,6 +12,5 @@ source $HOME/.config/nvim/conf/ctags.vim
 source $HOME/.config/nvim/conf/treesitter.vim
 source $HOME/.config/nvim/conf/telescope.vim
 source $HOME/.config/nvim/conf/complete.vim
-source $HOME/.config/nvim/conf/lsp.lua
 source $HOME/.config/nvim/conf/octo.lua
-
+source $HOME/.config/nvim/conf/lsp.lua

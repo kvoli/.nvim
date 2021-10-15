@@ -22,8 +22,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'akinsho/toggleterm.nvim'
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'phaazon/hop.nvim'
-
-
+    Plug 'hrsh7th/vim-eft'
+    
     " tabs/buffers
     Plug 'ap/vim-buftabline'
 
@@ -91,6 +91,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " clipboard manager
     Plug  'AckslD/nvim-neoclip.lua' 
+
+    " Filetype 
+    Plug  'nathom/filetype.nvim'
 
 
 call plug#end()
