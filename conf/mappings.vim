@@ -16,9 +16,6 @@ inoremap ? ?<c-g>u
 " Place semi-colon at EOL
 inoremap ;; <Esc>A;<Esc>
 
-" file browser
-nnoremap <leader>fr <Cmd> lua require("mod").file_browser()<CR>
-
 " Jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
@@ -128,6 +125,10 @@ omap t <Plug>(eft-t)
 nmap T <Plug>(eft-T)
 xmap T <Plug>(eft-T)
 omap T <Plug>(eft-T)
+
+"Diff View
+nnoremap <leader>dff <cmd>DiffviewOpen<CR>
+nnoremap <leader>dfc <cmd>DiffviewClose<CR>
 
 " debugger dap mappings
 nnoremap <silent> <F5> :lua require'dap'.continue()<CR>

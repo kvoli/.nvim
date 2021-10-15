@@ -23,6 +23,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'phaazon/hop.nvim'
     Plug 'hrsh7th/vim-eft'
+    Plug 'sindrets/diffview.nvim'
+    Plug 'mipmip/vim-scimark'
+    Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'nixprime/cpsm'
     
     " tabs/buffers
     Plug 'ap/vim-buftabline'
@@ -59,6 +63,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " treesitter
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
+    Plug 'romgrk/nvim-treesitter-context'
 
     " lsp 
     Plug 'neovim/nvim-lspconfig'
@@ -84,6 +89,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " github
     Plug 'pwntester/octo.nvim'
+Plug 'sindrets/diffview.nvim'
 
     " pops
     Plug 'nvim-lua/popup.nvim'
