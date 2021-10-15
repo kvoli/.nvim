@@ -73,6 +73,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'hrsh7th/cmp-path'
     Plug 'saadparwaiz1/cmp_luasnip'
     Plug 'ray-x/lsp_signature.nvim'
+    Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
     " debug
     Plug 'mfussenegger/nvim-dap'

@@ -118,7 +118,6 @@ cmp.setup {
         fallback()
       end
     end, { "i", "s" }),
-
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -145,6 +144,7 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp' },
+ 	{ name = 'cmp_tabnine' },
     { name = 'nvim_lua' },
     { name = 'luasnip' },
     { name = 'buffer' },
