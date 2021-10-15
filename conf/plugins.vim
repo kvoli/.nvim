@@ -76,6 +76,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
     " debug
+    Plug 'Pocco81/DAPInstall.nvim'
     Plug 'mfussenegger/nvim-dap'
     Plug 'nvim-telescope/telescope-dap.nvim'
     Plug 'rcarriga/nvim-dap-ui'
