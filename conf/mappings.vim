@@ -13,6 +13,12 @@ inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
+" Place semi-colon at EOL
+inoremap ;; <Esc>A;<Esc>
+
+" file browser
+nnoremap <leader>fr <Cmd> lua require("mod").file_browser()<CR>
+
 " Jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
@@ -30,7 +36,6 @@ nnoremap { {zzzv
 
 " Moving text
 vnoremap J :m '>+1'<CR>gv=gv
-vnoremap K :m '<-2'<CR>gv=gv
 nnoremap <leader>k :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
 

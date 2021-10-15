@@ -12,5 +12,5 @@ source $HOME/.config/nvim/conf/ctags.vim
 source $HOME/.config/nvim/conf/treesitter.vim
 source $HOME/.config/nvim/conf/telescope.vim
 source $HOME/.config/nvim/conf/complete.vim
-source $HOME/.config/nvim/conf/octo.lua
-source $HOME/.config/nvim/conf/lsp.lua
+source $HOME/.config/nvim/lua/mod.lua
+source $HOME/.config/nvim/lua/lsp.lua
