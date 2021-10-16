@@ -10,7 +10,7 @@ source $HOME/.config/nvim/conf/buftabline.vim
 source $HOME/.config/nvim/conf/neovide.vim
 source $HOME/.config/nvim/conf/nerdtree.vim
 source $HOME/.config/nvim/conf/ctags.vim
-source $HOME/.config/nvim/conf/treesitter.vim
 source $HOME/.config/nvim/conf/telescope.vim
+source $HOME/.config/nvim/lua/treesitter.lua
 source $HOME/.config/nvim/lua/mod.lua
 source $HOME/.config/nvim/lua/lsp.lua

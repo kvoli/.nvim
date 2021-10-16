@@ -27,6 +27,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mipmip/vim-scimark'
     Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'nixprime/cpsm'
+    Plug 'tpope/vim-repeat'
     
     " tabs/buffers
     Plug 'ap/vim-buftabline'
