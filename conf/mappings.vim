@@ -143,3 +143,7 @@ nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
 
 " generate annotation
 "nnoremap <silent> <leader>nf :lua require'neogen'.generate()<CR>
+
+" easy align
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)

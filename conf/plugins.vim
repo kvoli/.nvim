@@ -28,6 +28,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'nixprime/cpsm'
     Plug 'tpope/vim-repeat'
+    Plug 'jghauser/mkdir.nvim'
+    Plug 'junegunn/vim-easy-align'
     
     " tabs/buffers
     Plug 'ap/vim-buftabline'
@@ -80,6 +82,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'saadparwaiz1/cmp_luasnip'
     Plug 'ray-x/lsp_signature.nvim'
     Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+    Plug 'andersevenrud/compe-tmux', { 'branch': 'cmp' }
 
     " debug
     Plug 'Pocco81/DAPInstall.nvim'
@@ -97,11 +100,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Comemnt Gen
     Plug 'danymat/neogen'
-
-
-    " Browser!
-    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) },  'tag': 'v0.2.6' }
-
+    "
     " clipboard manager
     Plug  'AckslD/nvim-neoclip.lua' 
 
