@@ -308,7 +308,7 @@ require('telescope').setup{
         file_ignore_patterns = {},
         generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
         border = {},
-        borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' }, 
+        borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
         winblend = 20,
         previewer = true,
         color_devicons = true,
@@ -320,5 +320,12 @@ require('telescope').setup{
     }
 }
 require('telescope').load_extension('neoclip')
+
+require('neogen').setup { enabled = true }
+
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap("n", "<Leader>af", ":lua require('neogen').generate()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>ac", ":lua require('neogen').generate({ type = 'class' })<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>at", ":lua require('neogen').generate({ type = 'type' })<CR>", opts)
 
 require'hop'.setup { keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5 }

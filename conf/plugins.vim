@@ -90,10 +90,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " github
     Plug 'pwntester/octo.nvim'
-Plug 'sindrets/diffview.nvim'
+    Plug 'sindrets/diffview.nvim'
 
     " pops
     Plug 'nvim-lua/popup.nvim'
+
+    " Comemnt Gen
+    Plug 'danymat/neogen'
+
 
     " Browser!
     Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) },  'tag': 'v0.2.6' }
