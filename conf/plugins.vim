@@ -83,6 +83,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'ray-x/lsp_signature.nvim'
     Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
     Plug 'andersevenrud/compe-tmux', { 'branch': 'cmp' }
+    Plug 'nanotee/sqls.nvim'
 
     " debug
     Plug 'Pocco81/DAPInstall.nvim'
