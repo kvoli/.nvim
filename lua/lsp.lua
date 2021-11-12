@@ -234,49 +234,102 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 
 require('rust-tools').setup({})
-require('nvim-autopairs').setup{}
+local Rule = require('nvim-autopairs.rule')
+local npairs = require('nvim-autopairs')
 
--- autopairs support for cmp
-require("nvim-autopairs.completion.cmp").setup({
-    map_cr = true, --  map <CR> on insert mode
-    map_complete = true, -- it will auto insert `(` after select function or method item
-    fast_wrap = {},
-  })
+npairs.setup({})
+
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
 require('nvim-autopairs').enable()
+
+
+npairs.add_rule(Rule("$$","$$","tex"))
+
+-- you can use some built-in condition
+
+local cond = require('nvim-autopairs.conds')
+
+npairs.add_rules({
+  Rule("$", "$",{"tex", "latex"})
+    -- don't add a pair if the next character is %
+    :with_pair(cond.not_after_regex_check("%%"))
+    -- don't add a pair if  the previous character is xxx
+    :with_pair(cond.not_before_regex_check("xxx", 3))
+    -- don't move right when repeat character
+    :with_move(cond.none())
+    -- don't delete if the next character is xx
+    :with_del(cond.not_after_regex_check("xx"))
+    -- disable add newline when press <cr>
+    :with_cr(cond.none())
+  },
+  --it is not working on .vim but it working on another filetype
+  Rule("a","a","-vim")
+)
+
+npairs.add_rules({
+  Rule("$$","$$","tex")
+    :with_pair(function(opts)
+        print(vim.inspect(opts))
+        if opts.line=="aa $$" then
+        -- don't add pair on that line
+          return false
+        end
+    end)
+   }
+)
 
 -- set inlay hints
 require('rust-tools.inlay_hints').set_inlay_hints()
 
-require("toggleterm").setup{
-  -- size can be a number or function which is passed the current terminal
-  size = function(term)
-    if term.direction == "horizontal" then
-      return 15
-    elseif term.direction == "vertical" then
-      return vim.o.columns * 0.4
-    end
-  end,
-  open_mapping = [[<c-\>]],
-  hide_numbers = true, -- hide the number column in toggleterm buffers
-  shade_filetypes = {},
-  shade_terminals = true,
-  shading_factor = '1', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
-  start_in_insert = true,
-  insert_mappings = true, -- whether or not the open mapping applies in insert mode
-  persist_size = true,
-  direction = 'float',
-  close_on_exit = true, -- close the terminal window when the process exits
-  shell = vim.o.shell, -- change the default shell
-  float_opts = {
-    border = 'single',
-    winblend = 20,
-    highlights = {
-      border = "Normal",
-      background = "Normal",
-    }
-  }
-}
+require'FTerm'.setup({
+    -- Filetype of the terminal buffer
+    ft = 'FTerm',
+
+    -- Command to run inside the terminal. It could be a `string` or `table`
+    cmd = os.getenv('SHELL'),
+
+    border = { {'╔', "MoreMsg" }, {'═', "MoreMsg"}, {'╗', "MoreMsg"}, {'║', "MoreMsg"}, {'╝', "MoreMsg"}, {'═', "MoreMsg"}, {'╚',"MoreMsg"}, {'║', "MoreMsg"} },
+
+    -- Close the terminal as soon as shell/command exits.
+    -- Disabling this will mimic the native terminal behaviour.
+    auto_close = true,
+
+    -- Highlight group for the terminal. See `:h winhl`
+    hl = 'Normal',
+
+    -- Transparency of the floating window. See `:h winblend`
+    blend = 20,
+
+    -- Object containing the terminal window dimensions.
+    -- The value for each field should be between `0` and `1`
+    dimensions = {
+        height = 0.85, -- Height of the terminal window
+        width = 0.85, -- Width of the terminal window
+        x = 0.5, -- X axis of the terminal window
+        y = 0.5, -- Y axis of the terminal window
+    },
+
+    -- Callback invoked when the terminal exits.
+    -- See `:h jobstart-options`
+    on_exit = nil,
+
+    -- Callback invoked when the terminal emits stdout data.
+    -- See `:h jobstart-options`
+    on_stdout = nil,
+
+    -- Callback invoked when the terminal emits stderr data.
+    -- See `:h jobstart-options`
+    on_stderr = nil,
+})
+
+-- Example keybindings
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+map('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+map('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 
 require('neoclip').setup()
 require('colorizer').setup()

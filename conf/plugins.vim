@@ -19,7 +19,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-surround'
     Plug 'windwp/nvim-autopairs'
     Plug 'chiel92/vim-autoformat'
-    Plug 'akinsho/toggleterm.nvim'
+    Plug 'numtostr/FTerm.nvim'
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'phaazon/hop.nvim'
     Plug 'hrsh7th/vim-eft'
