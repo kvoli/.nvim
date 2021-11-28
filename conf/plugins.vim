@@ -84,6 +84,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
     Plug 'andersevenrud/compe-tmux', { 'branch': 'cmp' }
     Plug 'nanotee/sqls.nvim'
+    Plug 'jubnzv/virtual-types.nvim'
 
     " debug
     Plug 'Pocco81/DAPInstall.nvim'

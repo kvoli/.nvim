@@ -31,12 +31,15 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = { 'documentation', 'detail', 'additionalTextEdits', },
 }
 
+local virtualtypes = require("virtualtypes")
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
@@ -63,6 +66,8 @@ local on_attach = function(client, bufnr)
 
   vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, { border = border, focusable = false })
   vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, { border = border, focusable = false })
+
+ virtualtypes.on_attach()
  require "lsp_signature".on_attach({
         bind = true,
         floating_window = true,
@@ -85,6 +90,7 @@ local on_attach = function(client, bufnr)
         timer_interval = 200,
         doc_lines = 10,
     })
+
 end
 
 
