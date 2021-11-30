@@ -3,6 +3,7 @@
 --
 vim.g.did_load_filetypes = 1
 
+
 local lspconfig = require('lspconfig')
 local types = require('cmp.types')
 local WIDE_HEIGHT = 40
@@ -39,7 +40,6 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
@@ -96,7 +96,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local local_servers = { 'zls', 'rust_analyzer', 'gopls', 'ccls', 'sqls' }
+local local_servers = { 'ccls' }
 for _, lsp in ipairs(local_servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -106,23 +106,21 @@ for _, lsp in ipairs(local_servers) do
   }
 end
 
-local function setup_servers()
-  require'lspinstall'.setup()
-  local servers = require'lspinstall'.installed_servers()
-  for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{
+local lsp_installer = require("nvim-lsp-installer")
+
+-- Register a handler that will be called for all installed servers.
+-- Alternatively, you may also register handlers on specific server instances instead (see example below).
+lsp_installer.on_server_ready(function(server)
+    local opts = { 
       on_attach = on_attach,
+      flags = {
+        debounce_text_changes = 150,
+      }
     }
-  end
-end
 
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
+    server:setup(opts)
+end)
 
-setup_servers()
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -219,7 +217,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'tmux',
-      opts = {
+      option = {
         all_panes = false,
         label = '[tmux]',
         trigger_characters = { '.' },

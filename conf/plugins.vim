@@ -70,8 +70,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " lsp 
     Plug 'neovim/nvim-lspconfig'
-    Plug 'kabouzeid/nvim-lspinstall'
     Plug 'nvim-lua/lsp_extensions.nvim'
+    Plug 'williamboman/nvim-lsp-installer'
 
     " lsp completion
     Plug 'hrsh7th/nvim-cmp'
