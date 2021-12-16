@@ -10,7 +10,7 @@ let g:startify_bookmarks = [
             \ { 'z': '~/.zshrc' },
             \ { 'd': '~/Downloads'},
             \ { 'w': '~/go/src/github.com/cockroachdb/cockroach'},
-            \ { 'k': '~/go/src/github.com/cockroachdb/cockroach/pkg/kv'},
+            \ { 'v': '~/go/src/github.com/cockroachdb/cockroach/pkg/kv'},
             \ { 'u': '~/Documents/git/uni'},
             \ { 'p': '~/Documents/git/projects'},
             \ { 'c': '~/Documents/git/competitive'},
