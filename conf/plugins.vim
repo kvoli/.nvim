@@ -12,7 +12,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mhinz/vim-startify'
 
     " misc
-    Plug 'tpope/vim-fugitive'
     Plug 'preservim/nerdtree'
     Plug 'scrooloose/nerdcommenter'
     Plug 'mbbill/undotree'
@@ -97,9 +96,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'rcarriga/nvim-dap-ui'
     Plug 'theHamsta/nvim-dap-virtual-text'
 
-    " github
+    " git
     "Plug 'pwntester/octo.nvim'
     "Plug 'sindrets/diffview.nvim'
+    Plug 'APZelos/blamer.nvim'
+    "Plug 'tpope/vim-fugitive'
 
     " pops
     Plug 'nvim-lua/popup.nvim'
