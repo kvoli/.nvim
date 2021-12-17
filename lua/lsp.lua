@@ -332,8 +332,8 @@ require'FTerm'.setup({
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-map('n', '<C-w>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
-map('t', '<C-w>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
+map('n', '<C-t>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+map('t', '<C-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 
 require('neoclip').setup()
 require('colorizer').setup()

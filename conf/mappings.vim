@@ -102,7 +102,7 @@ nnoremap ]] j0[[%/{<CR>
 nnoremap [] k$][%?}<CR>
 
 " Tagbar
-nmap <C-t> :TagbarToggle<CR>
+nmap <C-s-t> :TagbarToggle<CR>
 
 nmap <leader>fw :HopWord<CR>
 nmap <leader>fl :HopLine<CR>
