@@ -24,7 +24,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'phaazon/hop.nvim'
     Plug 'hrsh7th/vim-eft'
-    Plug 'sindrets/diffview.nvim'
     Plug 'mipmip/vim-scimark'
     Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'nixprime/cpsm'
@@ -59,6 +58,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " fuzzy finder
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
     " snippets
     Plug 'honza/vim-snippets'
@@ -80,9 +80,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'hrsh7th/cmp-nvim-lua'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-path'
+
     Plug 'saadparwaiz1/cmp_luasnip'
     Plug 'ray-x/lsp_signature.nvim'
+
+    " disable on remote
     Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+    
     Plug 'andersevenrud/compe-tmux', { 'branch': 'cmp' }
     Plug 'nanotee/sqls.nvim'
     Plug 'jubnzv/virtual-types.nvim'
@@ -95,13 +99,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'theHamsta/nvim-dap-virtual-text'
 
     " github
-    Plug 'pwntester/octo.nvim'
-    Plug 'sindrets/diffview.nvim'
+    "Plug 'pwntester/octo.nvim'
+    "Plug 'sindrets/diffview.nvim'
 
     " pops
     Plug 'nvim-lua/popup.nvim'
 
-    " Comemnt Gen
+    " Comment Gen
     Plug 'danymat/neogen'
     "
     " clipboard manager
