@@ -130,14 +130,14 @@ end
 -- luasnip setup
 local luasnip = require 'luasnip'
 
-local tabnine = require('cmp_tabnine.config')
-tabnine:setup({
-        max_lines = 1000;
-        max_num_results = 20;
-        sort = true;
-	run_on_every_keystroke = true;
-	snippet_placeholder = '..';
-})
+--local tabnine = require('cmp_tabnine.config')
+--tabnine:setup({
+--        max_lines = 1000;
+--        max_num_results = 20;
+--        sort = true;
+--    run_on_every_keystroke = true;
+--    snippet_placeholder = '..';
+--})
 
 
 -- nvim-cmp setup
@@ -332,8 +332,8 @@ require'FTerm'.setup({
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-map('n', '<C-[>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
-map('t', '<C-[>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
+map('n', '<C-q>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+map('t', '<C-q>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 
 require('neoclip').setup()
 require('colorizer').setup()

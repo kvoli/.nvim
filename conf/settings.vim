@@ -64,6 +64,7 @@ augroup on_change_colorschema
   autocmd ColorScheme * call s:base16_customize()
 augroup END
 
+set shell=/usr/bin/zsh
 
 autocmd VimEnter * hi Normal ctermbg=none
 autocmd vimenter * ++nested colorscheme void-bear

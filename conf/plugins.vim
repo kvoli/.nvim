@@ -82,7 +82,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'hrsh7th/cmp-path'
     Plug 'saadparwaiz1/cmp_luasnip'
     Plug 'ray-x/lsp_signature.nvim'
-    Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+    "Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
     Plug 'andersevenrud/compe-tmux', { 'branch': 'cmp' }
     Plug 'nanotee/sqls.nvim'
     Plug 'jubnzv/virtual-types.nvim'
