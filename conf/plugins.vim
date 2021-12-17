@@ -56,6 +56,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'sheerun/vim-polyglot'
 
     " fuzzy finder
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }

@@ -2,7 +2,7 @@ let g:mapleader = "\<Space>"            " set leader key
 
 syntax enable                           " Enables syntax highlighing
 
-let g:base16_shell_path="/home/kvoli/.config/base16/output/shell/"
+"let g:base16_shell_path="/home/kvoli/.config/base16/output/shell/"
 let base16colorspace=256  " Access colors present in 256 colorspace
 
 "au BufWrite * :Autoformat               " format on write
@@ -64,7 +64,7 @@ augroup on_change_colorschema
   autocmd ColorScheme * call s:base16_customize()
 augroup END
 
-set shell=/usr/bin/zsh
+set shell=/bin/zsh
 
 autocmd VimEnter * hi Normal ctermbg=none
 autocmd vimenter * ++nested colorscheme void-bear
