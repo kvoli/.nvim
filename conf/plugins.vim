@@ -23,9 +23,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'phaazon/hop.nvim'
     Plug 'hrsh7th/vim-eft'
-    Plug 'mipmip/vim-scimark'
     Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'nixprime/cpsm'
     Plug 'tpope/vim-repeat'
     Plug 'jghauser/mkdir.nvim'
     Plug 'junegunn/vim-easy-align'
@@ -35,10 +33,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " theme
     Plug 'RRethy/nvim-base16'
-
-    " ctags
-    Plug 'majutsushi/tagbar'
-    Plug 'ternjs/tern_for_vim'
 
     " languages
     Plug 'lervag/vimtex'
@@ -56,7 +50,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " fuzzy finder
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
+    Plug 'ibhagwan/fzf-lua'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
