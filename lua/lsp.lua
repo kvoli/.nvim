@@ -270,6 +270,7 @@ for _, lsp in ipairs(local_servers) do
   }
 end
 
+
 local lsp_installer = require("nvim-lsp-installer")
 
 -- Register a handler that will be called for all installed servers.
@@ -582,6 +583,9 @@ require('telescope').setup{
 
 local null_ls = require("null-ls")
 
+require("zk").setup()
+
+require("telescope").load_extension("zk")
 require('telescope').load_extension('neoclip')
 require('telescope').load_extension('fzf')
 

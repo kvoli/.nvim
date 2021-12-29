@@ -44,6 +44,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'pangloss/vim-javascript'
     Plug 'leafgarland/typescript-vim'
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+    Plug 'mickael-menu/zk-nvim'
 
     " syntax
     Plug 'vim-syntastic/syntastic'
