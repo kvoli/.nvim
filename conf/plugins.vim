@@ -27,6 +27,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-repeat'
     Plug 'jghauser/mkdir.nvim'
     Plug 'junegunn/vim-easy-align'
+    Plug 'antoinemadec/FixCursorHold.nvim'
     
     " tabs/buffers
     Plug 'ap/vim-buftabline'
@@ -63,11 +64,17 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
     Plug 'romgrk/nvim-treesitter-context'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
 
     " lsp 
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/lsp_extensions.nvim'
     Plug 'williamboman/nvim-lsp-installer'
+    Plug 'williamboman/nvim-lsp-installer'
+    Plug 'jose-elias-alvarez/null-ls.nvim'
+
 
     " lsp completion
     Plug 'hrsh7th/nvim-cmp'
@@ -76,6 +83,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-path'
 
+    Plug 'WhoIsSethDaniel/goldsmith.nvim'
     Plug 'saadparwaiz1/cmp_luasnip'
     Plug 'ray-x/lsp_signature.nvim'
     "Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }

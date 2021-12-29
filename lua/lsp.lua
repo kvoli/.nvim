@@ -93,6 +93,170 @@ local on_attach = function(client, bufnr)
 
 end
 
+require("goldsmith").config({
+  codelens = {
+    show = true
+  },
+  completion = {
+    omni = false
+  },
+  format = {
+    comments = {
+      enabled = false,
+      private = false,
+      template = "....",
+      test_files = false
+    },
+    goimports = {
+      enabled = true,
+      timeout = 1000
+    },
+    max_line_length = 120,
+    run_on_save = true
+  },
+  goalt = {
+    use_current_window = false,
+    window = {}
+  },
+  gobuild = {
+    qf = {},
+    use_makefile = true,
+    window = {}
+  },
+  godoc = {
+    window = {}
+  },
+  goget = {
+    window = {}
+  },
+  goinstall = {
+    window = {}
+  },
+  gopls = {
+    options = { "-remote=auto" }
+  },
+  gorun = {
+    qf = {},
+    window = {}
+  },
+  gotest = {
+    window = {}
+  },
+  gotestvisit = {
+    use_current_window = false,
+    window = {}
+  },
+  gotostruct = {
+    fetch_register = "+",
+    store_register = "*",
+    struct_name = "Foo"
+  },
+  highlight = {
+    current_symbol = true
+  },
+  jump = {
+    use_current_window = true,
+    window = {}
+  },
+  mappings = {
+    ["add-ws-folder"] = { "<leader>wa" },
+    ["alt-file"] = {},
+    ["alt-file-force"] = {},
+    build = {},
+    ["build-last"] = {},
+    ["close-any"] = {},
+    ["close-terminal"] = {},
+    codeaction = { "<leader>ca" },
+    ["codelens-off"] = {},
+    ["codelens-on"] = {},
+    ["codelens-run"] = {},
+    coverage = {},
+    ["coverage-browser"] = {},
+    ["coverage-files"] = {},
+    ["coverage-off"] = {},
+    ["coverage-on"] = {},
+    enabled = true,
+    fillstruct = {},
+    format = { "<leader>f" },
+    godef = { "gdd", "<C-]>" },
+    goimplementation = { "gii" },
+    goref = { "grr" },
+    hover = { "K" },
+    ["list-ws-folders"] = { "<leader>wl" },
+    nextdiag = { "]d" },
+    prevdiag = { "[d" },
+    rename = { "<leader>rn" },
+    ["rm-ws-folder"] = { "<leader>wr" },
+    run = {},
+    ["run-last"] = {},
+    setloclist = { "<leader>q" },
+    showdiag = { "<leader>e" },
+    sighelp = { "<C-k>" },
+    ["start-follow"] = { "F" },
+    ["stop-follow"] = { "S" },
+    ["super-close-any"] = {},
+    ["sym-highlight"] = {},
+    ["sym-highlight-off"] = {},
+    ["sym-highlight-on"] = {},
+    ["telescope-go-code-files"] = {},
+    ["telescope-go-covered-files"] = {},
+    ["telescope-go-files"] = {},
+    ["telescope-go-test-files"] = {},
+    ["test-a-nearest"] = {},
+    ["test-a-pkg"] = {},
+    ["test-a-suite"] = {},
+    ["test-b-nearest"] = {},
+    ["test-b-pkg"] = {},
+    ["test-b-suite"] = {},
+    ["test-close-window"] = {},
+    ["test-last"] = {},
+    ["test-nearest"] = {},
+    ["test-pkg"] = {},
+    ["test-suite"] = {},
+    ["test-visit"] = {},
+    ["toggle-debug-console"] = {},
+    typedef = { "<leader>D" }
+  },
+  null = {
+    enabled = true,
+    gofmt = false,
+    gofumpt = false,
+    ["golangci-lint"] = false,
+    golines = true,
+    revive = true,
+    staticcheck = false
+  },
+  qf = {
+    empty = false,
+    focus = false,
+    sort = true,
+    type = "qf"
+  },
+  status = {
+    max_length = 40
+  },
+  system = {
+    debug = false,
+    root_dir = { ".git", "go.mod", "go.work" }
+  },
+  tags = {
+    default_tag = "json",
+    skip_unexported = false,
+    transform = "snakecase"
+  },
+  testing = {
+    arguments = {},
+    qf = {},
+    strategy = "display",
+    window = {}
+  },
+  window = {
+    focus = true,
+    height = 20,
+    pos = "right",
+    width = 80
+  }
+})
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
@@ -118,9 +282,12 @@ lsp_installer.on_server_ready(function(server)
       }
     }
 
+    if not require('goldsmith').needed(server.name) then
+      server:setup(opts)
+    end
+
     server:setup(opts)
 end)
-
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -412,6 +579,8 @@ require('telescope').setup{
         }
     }
 }
+
+local null_ls = require("null-ls")
 
 require('telescope').load_extension('neoclip')
 require('telescope').load_extension('fzf')
