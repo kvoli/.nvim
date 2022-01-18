@@ -28,6 +28,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jghauser/mkdir.nvim'
     Plug 'junegunn/vim-easy-align'
     Plug 'antoinemadec/FixCursorHold.nvim'
+    Plug 'AndrewRadev/splitjoin.vim'
     
     " tabs/buffers
     Plug 'ap/vim-buftabline'
@@ -67,7 +68,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'romgrk/nvim-treesitter-context'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-
 
     " lsp 
     Plug 'neovim/nvim-lspconfig'

@@ -392,7 +392,7 @@ require('telescope').setup{
         generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
         border = {},
         borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
-        winblend = 20,
+        winblend = 10,
         previewer = true,
         color_devicons = true,
         use_less = false,
