@@ -12,8 +12,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mhinz/vim-startify'
 
     " misc
-    Plug 'preservim/nerdtree'
-    Plug 'scrooloose/nerdcommenter'
+    Plug 'tpope/vim-vinegar'
+    Plug 'numToStr/Comment.nvim' 
     Plug 'mbbill/undotree'
     Plug 'tpope/vim-surround'
     Plug 'windwp/nvim-autopairs'
@@ -29,6 +29,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/vim-easy-align'
     Plug 'antoinemadec/FixCursorHold.nvim'
     Plug 'AndrewRadev/splitjoin.vim'
+    Plug 'nvim-telescope/telescope-github.nvim'
     
     " tabs/buffers
     Plug 'ap/vim-buftabline'
