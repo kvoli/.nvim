@@ -17,6 +17,11 @@ nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>gs <cmd>lua require('telescope.builtin').git_status()<cr>
 nnoremap <leader>gd <cmd>lua require('mod').git_diff()<cr>
 
+nnoremap <leader>gi <cmd>lua require('telescope').extensions.gh.issues()<cr>
+nnoremap <leader>gp <cmd>lua require('telescope').extensions.gh.pull_request()<cr>
+nnoremap <leader>gg <cmd>lua require('telescope').extensions.gh.gist()<cr>
+nnoremap <leader>gr <cmd>lua require('telescope').extensions.gh.run()<cr>
+
 " misc
 nnoremap my :Telescope neoclip<cr>
 nnoremap <leader>tcm <cmd>lua require('telescope.builtin').commands()<cr>
@@ -25,4 +30,5 @@ nnoremap <leader>tsp <cmd>lua require('telescope.builtin').spell_suggest()<cr>
 nnoremap <leader>thi <cmd>lua require('telescope.builtin').highlights()<cr>
 nnoremap <leader>tma <cmd>lua require('telescope.builtin').man_pages()<cr>
 nnoremap <leader>tgd <cmd>lua require('telescope.builtin').keymaps()<cr>
+
 
