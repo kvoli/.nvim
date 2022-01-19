@@ -416,9 +416,12 @@ local null_ls = require("null-ls")
 
 require("zk").setup()
 
+require('Comment').setup()
+
 require("telescope").load_extension("zk")
 require('telescope').load_extension('neoclip')
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('gh')
 
 require('neogen').setup { enabled = true }
 
