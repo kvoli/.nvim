@@ -36,6 +36,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " theme
     Plug 'RRethy/nvim-base16'
+    Plug 'doums/darcula'
 
     " languages
     Plug 'lervag/vimtex'

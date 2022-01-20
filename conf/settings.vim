@@ -2,7 +2,6 @@ let g:mapleader = "\<Space>"            " set leader key
 
 syntax enable                           " Enables syntax highlighing
 
-"let g:base16_shell_path="/home/kvoli/.config/base16/output/shell/"
 let base16colorspace=256  " Access colors present in 256 colorspace
 
 "au BufWrite * :Autoformat               " format on write
@@ -51,20 +50,23 @@ if exists('+termguicolors')
     set termguicolors
 endif
 
-function! s:base16_customize() abort
-  call Base16hi("VertSplit", g:base16_gui00, g:base16_gui00, g:base16_cterm00, g:base16_cterm00, "", "")
-  call Base16hi("HorizontalSplit", g:base16_gui00, g:base16_gui00, g:base16_cterm00, g:base16_cterm00, "", "")
-  call Base16hi("LineNr", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
-  call Base16hi("CursorLineNr", g:base16_gui06, g:base16_gui00, g:base16_cterm06, g:base16_cterm00, "", "")
-  call Base16hi("Pmenu","", g:base16_gui00, "", g:base16_cterm00, "", "")
-endfunction
+autocmd vimenter * ++nested colorscheme darcula
+"function! s:base16_customize() abort
+"  call Base16hi("Function", g:base16_gui06, "", "", g:base16_cterm06, "", "")
+"  call Base16hi("Include", g:base16_gui05, "", "", g:base16_cterm05, "", "")
+"  call Base16hi("Type", g:base16_gui0E, "", "", g:base16_cterm0E, "", "")
+"  call Base16hi("LineNr", g:base16_gui0F, g:base16_gui00, g:base16_cterm0F, g:base16_cterm00, "", "")
+"  call Base16hi("VertSplit", "", g:base16_gui00,"", g:base16_cterm00, "", "")
+"  call Base16hi("HorizontalSplit", "", g:base16_gui00,"", g:base16_cterm00, "", "")
+"endfunction
 
-augroup on_change_colorschema
-  autocmd!
-  autocmd ColorScheme * call s:base16_customize()
-augroup END
+
+"augroup on_change_colorschema
+"  autocmd!
+"  autocmd ColorScheme * call s:base16_customize()
+"augroup END
 
 set shell=/bin/zsh
 
-autocmd VimEnter * hi Normal ctermbg=none
-autocmd vimenter * ++nested colorscheme void-bear
+"autocmd VimEnter * hi Normal ctermbg=none
+autocmd vimenter * ++nested highlight LineNr ctermfg=241 ctermbg=NONE guifg=#606060 guibg=NONE
