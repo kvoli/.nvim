@@ -139,6 +139,10 @@ nnoremap <silent> <leader>Bdr :lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
 nnoremap <silent> <leader>td :lua require('dap-go').debug_test()<CR>
 
+nnoremap <silent> <leader>do :lua require("dapui").open()
+nnoremap <silent> <leader>Do :lua require("dapui").close()
+nnoremap <silent> <leader>du :lua require("dapui").toggle()
+
 " harpoon mappings
 nnoremap <C-n> :lua require("harpoon.mark").add_file()<CR>
 
