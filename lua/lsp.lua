@@ -414,14 +414,17 @@ require('telescope').setup{
 
 local null_ls = require("null-ls")
 
-require("zk").setup()
+require('dap-go').setup()
+require("nvim-dap-virtual-text").setup()
+require('dap')
+vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
 
 require('Comment').setup()
 
-require("telescope").load_extension("zk")
 require('telescope').load_extension('neoclip')
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('gh')
+require("telescope").load_extension('harpoon')
 
 require('neogen').setup { enabled = true }
 

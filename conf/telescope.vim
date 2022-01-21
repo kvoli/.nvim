@@ -30,5 +30,14 @@ nnoremap <leader>tsp <cmd>lua require('telescope.builtin').spell_suggest()<cr>
 nnoremap <leader>thi <cmd>lua require('telescope.builtin').highlights()<cr>
 nnoremap <leader>tma <cmd>lua require('telescope.builtin').man_pages()<cr>
 nnoremap <leader>tgd <cmd>lua require('telescope.builtin').keymaps()<cr>
+nnoremap <C-m> <cmd>lua require('telescope').extensions.harpoon.marks()<cr>
 
+" dap
+nnoremap <leader>db <cmd>lua require('telescope').extensions.dap.list_breakpoints()<CR>
+
+nnoremap <leader>dc <cmd>lua require('telescope').extensions.dap.commands()<CR>
+nnoremap <leader>dv <cmd>lua require('telescope').extensions.dap.variables()<CR>
+nnoremap <leader>df <cmd>lua require('telescope').extensions.dap.frames()<CR>
+
+nnoremap <leader>dcf <cmd>lua require('telescope').extensions.dap.configurations()<CR>
 

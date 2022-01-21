@@ -37,7 +37,6 @@ set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set foldcolumn=0                        " remove highlighting on bars
-set signcolumn=no                       " remove highlighting on bars
 set spelllang=en_us                     " set language to american english
 set fillchars+=vert:\                   " set split char to null
 set undodir=~/.config/nvim/undo/        " set local change dir for undo plug
@@ -65,8 +64,9 @@ autocmd vimenter * ++nested colorscheme darcula
 "  autocmd!
 "  autocmd ColorScheme * call s:base16_customize()
 "augroup END
-
+"
 set shell=/bin/zsh
 
 "autocmd VimEnter * hi Normal ctermbg=none
 autocmd vimenter * ++nested highlight LineNr ctermfg=241 ctermbg=NONE guifg=#606060 guibg=NONE
+autocmd vimenter * ++nested highlight SignColumn cterm=bold ctermfg=11 ctermbg=NONE gui=bold guifg=#ffff60 guibg=NONE
