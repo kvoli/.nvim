@@ -55,7 +55,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " fuzzy finder
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'ibhagwan/fzf-lua'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -65,16 +64,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'L3MON4D3/LuaSnip'
 
     " treesitter
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
-    Plug 'romgrk/nvim-treesitter-context'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
     " lsp 
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/lsp_extensions.nvim'
-    Plug 'williamboman/nvim-lsp-installer'
     Plug 'williamboman/nvim-lsp-installer'
     Plug 'jose-elias-alvarez/null-ls.nvim'
 
@@ -99,6 +95,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-telescope/telescope-dap.nvim'
     Plug 'rcarriga/nvim-dap-ui'
     Plug 'theHamsta/nvim-dap-virtual-text'
+    Plug 'leoluz/nvim-dap-go'
 
     " git
     "Plug 'pwntester/octo.nvim'
@@ -117,6 +114,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Filetype 
     Plug  'nathom/filetype.nvim'
+
+    " Harpoon
+    Plug 'ThePrimeagen/harpoon'
 
 
 call plug#end()
