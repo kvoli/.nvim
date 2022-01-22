@@ -1,8 +1,14 @@
-" Use alt + hjkl to resize windows
-nnoremap <M-j>    :resize -2<CR>
-nnoremap <M-k>    :resize +2<CR>
-nnoremap <M-h>    :vertical resize -2<CR>
-nnoremap <M-l>    :vertical resize +2<CR>
+" Use alt + hjkl to resize windows (macOS)
+nnoremap ∆  :resize -4<CR>
+nnoremap ˚  :resize +4<CR>
+nnoremap ¬  :vertical resize -4<CR>
+nnoremap ˙  :vertical resize +4<CR>
+
+" Use alt + hjkl to resize windows (normal)
+nnoremap <C-j>  :resize -2<CR>
+nnoremap <C-k>  :resize +2<CR>
+nnoremap <C-h>  :vertical resize -2<CR>
+nnoremap <C-l>  :vertical resize +2<CR>
 
 "Make Y act like the other capital letters
 nnoremap Y y$
@@ -127,26 +133,30 @@ nnoremap <leader>dff <cmd>DiffviewOpen<CR>
 nnoremap <leader>dfc <cmd>DiffviewClose<CR>
 
 " debugger dap mappings
-nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
-nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
-nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
-nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
-nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
-nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint()<CR>
-nnoremap <silent> <leader>bc :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
-nnoremap <silent> <leader>Bdr :lua require'dap'.repl.open()<CR>
-nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
-nnoremap <silent> <leader>td :lua require('dap-go').debug_test()<CR>
+nnoremap <silent> <leader>c        <cmd>lua require'dap'.continue()<CR>
+nnoremap <silent> <leader>so       <cmd>lua require'dap'.step_over()<CR>
+nnoremap <silent> <leader>si       <cmd>lua require'dap'.step_into()<CR>
+nnoremap <silent> <leader>su       <cmd>lua require'dap'.step_out()<CR>
+nnoremap <silent> <leader>b        <cmd>lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <leader>B        <cmd>lua require'dap'.set_breakpoint()<CR>
+nnoremap <silent> <leader>bc       <cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <silent> <leader>lp       <cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+nnoremap <silent> <leader>Bdr      <cmd>lua require'dap'.repl.open()<CR>
+nnoremap <silent> <leader>dl       <cmd>lua require'dap'.run_last()<CR>
+nnoremap <silent> <leader>rc       <cmd>lua require'dap'.run_to_cursor()<CR>
 
-nnoremap <silent> <leader>do :lua require("dapui").open()
-nnoremap <silent> <leader>Do :lua require("dapui").close()
-nnoremap <silent> <leader>du :lua require("dapui").toggle()
+nnoremap <silent> <leader>td  <cmd>lua require('dap-go').debug_test()<CR>
+
+nnoremap <silent> <leader>do <cmd>lua require("dapui").open()<CR>
+nnoremap <silent> <leader>Do <cmd>lua require("dapui").close()<CR>
+nnoremap <silent> <leader>du <cmd>lua require("dapui").toggle()<CR>
+nnoremap <silent> <leader>ds <cmd>lua require("dapui").float_element('scopes', nil)<CR>
+
+nnoremap <C-K> <cmd> lua require("dapui").eval()<CR>
+vnoremap <C-K> <cmd> lua require("dapui").eval()<CR>
 
 " harpoon mappings
 nnoremap <C-n> :lua require("harpoon.mark").add_file()<CR>
-
-
 
 " easy align
 nmap ga <Plug>(EasyAlign)
