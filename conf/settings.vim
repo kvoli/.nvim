@@ -69,6 +69,7 @@ set shell=/bin/zsh
 
 "autocmd VimEnter * hi Normal ctermbg=none
 autocmd vimenter * ++nested highlight LineNr ctermfg=241 ctermbg=NONE guifg=#606060 guibg=NONE
+autocmd vimenter * ++nested highlight Pmenu ctermfg=241 ctermbg=NONE guifg=#606060 guibg=NONE
 autocmd vimenter * ++nested highlight SignColumn cterm=bold ctermfg=11 ctermbg=NONE gui=bold guifg=#ffff60 guibg=NONE
 " autocmd vimenter * ++nested highlight NvimDapVirtualText cterm=bold gui=bold 
 

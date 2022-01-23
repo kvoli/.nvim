@@ -8,6 +8,7 @@ local lspconfig = require('lspconfig')
 local types = require('cmp.types')
 local WIDE_HEIGHT = 40
 
+
 -- Diagnostics {{{
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = true,
@@ -77,18 +78,18 @@ local on_attach = function(client, bufnr)
         hint_prefix = " ",
         hint_scheme = "String",
         use_lspsaga = false,
-        hi_parameter = "CursorLineNr",
+        hi_parameter = "Cursor",
         max_height = 12,
-        max_width = 120,
-        transparency = 95,
+        max_width = 80,
+        transparency = 100,
         handler_opts = { border = "single" },
         trigger_on_newline = false,
         debug = false,
         padding = '',
-        shadow_blend = 36,
+        shadow_blend = 0,
         shadow_guibg = 'Black',
         timer_interval = 200,
-        doc_lines = 10,
+        doc_lines = 20,
     })
 
 end
