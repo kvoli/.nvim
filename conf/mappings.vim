@@ -161,3 +161,4 @@ nnoremap <C-n> :lua require("harpoon.mark").add_file()<CR>
 " easy align
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
+

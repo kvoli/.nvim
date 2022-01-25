@@ -495,4 +495,18 @@ vim.api.nvim_set_keymap("n", "<Leader>af", ":lua require('neogen').generate()<CR
 vim.api.nvim_set_keymap("n", "<Leader>ac", ":lua require('neogen').generate({ type = 'class' })<CR>", opts)
 vim.api.nvim_set_keymap("n", "<Leader>at", ":lua require('neogen').generate({ type = 'type' })<CR>", opts)
 
+require"gitlinker".setup({
+  opts = {
+    remote = nil, -- force the use of a specific remote
+    -- adds current line nr in the url for normal mode
+    add_current_line_on_normal_mode = true,
+    -- callback for what to do with the url
+    action_callback = require"gitlinker.actions".copy_to_clipboard,
+    -- print the url after performing the action
+    print_url = true,
+  },
+-- default mapping to call url generation with action_callback
+  mappings = "<leader>gy"
+})
+
 require'hop'.setup { keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5 }

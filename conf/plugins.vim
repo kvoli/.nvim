@@ -29,7 +29,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/vim-easy-align'
     Plug 'antoinemadec/FixCursorHold.nvim'
     Plug 'AndrewRadev/splitjoin.vim'
+
+    " git 
     Plug 'nvim-telescope/telescope-github.nvim'
+    Plug 'ruifm/gitlinker.nvim'
     
     " tabs/buffers
     Plug 'ap/vim-buftabline'
