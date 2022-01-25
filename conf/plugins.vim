@@ -76,7 +76,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-lua/lsp_extensions.nvim'
     Plug 'williamboman/nvim-lsp-installer'
     Plug 'jose-elias-alvarez/null-ls.nvim'
-
+    Plug 'j-hui/fidget.nvim'
 
     " lsp completion
     Plug 'hrsh7th/nvim-cmp'
