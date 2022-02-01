@@ -463,14 +463,9 @@ require("dapui").setup({
     size = 100,
     position = "left", -- Can be "left", "right", "top", "bottom"
   },
-  tray = {
-    elements = { "repl" },
-    size = 10,
-    position = "bottom", -- Can be "left", "right", "top", "bottom"
-  },
   floating = {
-    max_height = 0.6, -- These can be integers or a float between 0 and 1.
-    max_width = 0.8, -- Floats will be treated as percentage of your screen.
+    max_height = 0.5, -- These can be integers or a float between 0 and 1.
+    max_width = 0.5, -- Floats will be treated as percentage of your screen.
     border = "single", -- Border style. Can be "single", "double" or "rounded"
     mappings = {
       close = { "q", "<Esc>" },
@@ -510,4 +505,3 @@ require"gitlinker".setup({
 })
 
 require'hop'.setup { keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5 }
-require"fidget".setup{}
