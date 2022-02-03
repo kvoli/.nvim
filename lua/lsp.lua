@@ -11,10 +11,10 @@ local WIDE_HEIGHT = 40
 
 -- Diagnostics {{{
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
-    signs = true,
-    underline = true,
-    update_in_insert = false,
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
 })
 -- }}}
 vim.cmd ('autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({border="single", focusable=false})')
@@ -68,29 +68,29 @@ local on_attach = function(client, bufnr)
   vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, { border = border, focusable = false })
   vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, { border = border, focusable = false })
 
- virtualtypes.on_attach()
- require "lsp_signature".on_attach({
-        bind = true,
-        floating_window = true,
-        floating_window_above_cur_line = true,
-        fix_pos = false,
-        hint_enable = true,
-        hint_prefix = " ",
-        hint_scheme = "String",
-        use_lspsaga = false,
-        hi_parameter = "Cursor",
-        max_height = 12,
-        max_width = 80,
-        transparency = 100,
-        handler_opts = { border = "single" },
-        trigger_on_newline = false,
-        debug = false,
-        padding = '',
-        shadow_blend = 0,
-        shadow_guibg = 'Black',
-        timer_interval = 200,
-        doc_lines = 20,
-    })
+  virtualtypes.on_attach()
+  require "lsp_signature".on_attach({
+    bind = true,
+    floating_window = true,
+    floating_window_above_cur_line = true,
+    fix_pos = false,
+    hint_enable = true,
+    hint_prefix = " ",
+    hint_scheme = "String",
+    use_lspsaga = false,
+    hi_parameter = "Cursor",
+    max_height = 12,
+    max_width = 80,
+    transparency = 100,
+    handler_opts = { border = "single" },
+    trigger_on_newline = false,
+    debug = false,
+    padding = '',
+    shadow_blend = 0,
+    shadow_guibg = 'Black',
+    timer_interval = 200,
+    doc_lines = 20,
+  })
 
 end
 
@@ -112,14 +112,14 @@ local lsp_installer = require("nvim-lsp-installer")
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
-    local opts = { 
-      on_attach = on_attach,
-      flags = {
-        debounce_text_changes = 150,
-      }
+  local opts = { 
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
     }
+  }
 
-    server:setup(opts)
+  server:setup(opts)
 end)
 
 local has_words_before = function()
@@ -222,9 +222,9 @@ cmp.setup {
         label = '[tmux]',
         trigger_characters = { '.' },
         trigger_characters_ft = {},
-        }
+      }
     },
- 	{ name = 'cmp_tabnine' },
+    { name = 'cmp_tabnine' },
     { name = 'nvim_lua' },
     { name = 'luasnip' },
     { name = 'buffer' },
@@ -267,7 +267,7 @@ npairs.add_rules({
     :with_del(cond.not_after_regex_check("xx"))
     -- disable add newline when press <cr>
     :with_cr(cond.none())
-  },
+},
   --it is not working on .vim but it working on another filetype
   Rule("a","a","-vim")
 )
@@ -275,57 +275,57 @@ npairs.add_rules({
 npairs.add_rules({
   Rule("$$","$$","tex")
     :with_pair(function(opts)
-        print(vim.inspect(opts))
-        if opts.line=="aa $$" then
+      print(vim.inspect(opts))
+      if opts.line=="aa $$" then
         -- don't add pair on that line
-          return false
-        end
+        return false
+      end
     end)
-   }
+}
 )
 
 -- set inlay hints
 require('rust-tools.inlay_hints').set_inlay_hints()
 
 require'FTerm'.setup({
-    -- Filetype of the terminal buffer
-    ft = 'FTerm',
+  -- Filetype of the terminal buffer
+  ft = 'FTerm',
 
-    -- Command to run inside the terminal. It could be a `string` or `table`
-    cmd = os.getenv('SHELL'),
+  -- Command to run inside the terminal. It could be a `string` or `table`
+  cmd = os.getenv('SHELL'),
 
-    border = { {'╔', "MoreMsg" }, {'═', "MoreMsg"}, {'╗', "MoreMsg"}, {'║', "MoreMsg"}, {'╝', "MoreMsg"}, {'═', "MoreMsg"}, {'╚',"MoreMsg"}, {'║', "MoreMsg"} },
+  border = { {'╔', "MoreMsg" }, {'═', "MoreMsg"}, {'╗', "MoreMsg"}, {'║', "MoreMsg"}, {'╝', "MoreMsg"}, {'═', "MoreMsg"}, {'╚',"MoreMsg"}, {'║', "MoreMsg"} },
 
-    -- Close the terminal as soon as shell/command exits.
-    -- Disabling this will mimic the native terminal behaviour.
-    auto_close = true,
+  -- Close the terminal as soon as shell/command exits.
+  -- Disabling this will mimic the native terminal behaviour.
+  auto_close = true,
 
-    -- Highlight group for the terminal. See `:h winhl`
-    hl = 'Normal',
+  -- Highlight group for the terminal. See `:h winhl`
+  hl = 'Normal',
 
-    -- Transparency of the floating window. See `:h winblend`
-    blend = 20,
+  -- Transparency of the floating window. See `:h winblend`
+  blend = 20,
 
-    -- Object containing the terminal window dimensions.
-    -- The value for each field should be between `0` and `1`
-    dimensions = {
-        height = 0.85, -- Height of the terminal window
-        width = 0.85, -- Width of the terminal window
-        x = 0.5, -- X axis of the terminal window
-        y = 0.5, -- Y axis of the terminal window
-    },
+  -- Object containing the terminal window dimensions.
+  -- The value for each field should be between `0` and `1`
+  dimensions = {
+    height = 0.85, -- Height of the terminal window
+    width = 0.85, -- Width of the terminal window
+    x = 0.5, -- X axis of the terminal window
+    y = 0.5, -- Y axis of the terminal window
+  },
 
-    -- Callback invoked when the terminal exits.
-    -- See `:h jobstart-options`
-    on_exit = nil,
+  -- Callback invoked when the terminal exits.
+  -- See `:h jobstart-options`
+  on_exit = nil,
 
-    -- Callback invoked when the terminal emits stdout data.
-    -- See `:h jobstart-options`
-    on_stdout = nil,
+  -- Callback invoked when the terminal emits stdout data.
+  -- See `:h jobstart-options`
+  on_stdout = nil,
 
-    -- Callback invoked when the terminal emits stderr data.
-    -- See `:h jobstart-options`
-    on_stderr = nil,
+  -- Callback invoked when the terminal emits stderr data.
+  -- See `:h jobstart-options`
+  on_stderr = nil,
 })
 
 -- Example keybindings
@@ -361,73 +361,72 @@ end
 
 local actions = require('telescope.actions')
 require('telescope').setup{
-    defaults = {
-        buffer_previewer_maker = new_maker,
-        mappings = {
-            i = {
-                ["<esc>"] = actions.close,
-                ["<C-k>"] = actions.move_selection_previous,
-                ["<C-j>"] = actions.move_selection_next,
-            },
-        },
-        vimgrep_arguments = {
-          'rg', '--color=never', '--no-heading',
-          '--with-filename', '--line-number',
-          '--column', '--smart-case'
-        },
-        results_title = false,
-        preview_title = false,
-        prompt_prefix = "❱ ",
-        selection_caret = "❱ ",
-        entry_prefix = "  ",
-        initial_mode = "insert",
-        selection_strategy = "reset",
-        sorting_strategy = "descending",
-        layout_strategy = "horizontal",
-        layout_config = {
-            width = 0.8, height = 0.6,
-            prompt_position = "bottom",
-        },
-        file_sorter =  require'telescope.sorters'.get_fuzzy_file,
-        file_ignore_patterns = {},
-        generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
-        border = {},
-        borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
-        winblend = 10,
-        previewer = true,
-        color_devicons = true,
-        use_less = false,
-        set_env = { ['COLORTERM'] = 'truecolor' },
-        file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-        grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-        qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+  defaults = {
+    buffer_previewer_maker = new_maker,
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-j>"] = actions.move_selection_next,
+      },
     },
-    extensions = {
-        fzf = {
-          fuzzy = true,                    -- false will only do exact matching
-          override_generic_sorter = true,  -- override the generic sorter
-          override_file_sorter = true,     -- override the file sorter
-          case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                           -- the default case_mode is "smart_case"
-        }
+    vimgrep_arguments = {
+      'rg', '--color=never', '--no-heading',
+      '--with-filename', '--line-number',
+      '--column', '--smart-case'
+    },
+    results_title = false,
+    preview_title = false,
+    prompt_prefix = "❱ ",
+    selection_caret = "❱ ",
+    entry_prefix = "  ",
+    initial_mode = "insert",
+    selection_strategy = "reset",
+    sorting_strategy = "descending",
+    layout_strategy = "horizontal",
+    layout_config = {
+      width = 0.8, height = 0.6,
+      prompt_position = "bottom",
+    },
+    file_sorter =  require'telescope.sorters'.get_fuzzy_file,
+    file_ignore_patterns = {},
+    generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
+    border = {},
+    borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+    winblend = 10,
+    previewer = true,
+    color_devicons = true,
+    use_less = false,
+    set_env = { ['COLORTERM'] = 'truecolor' },
+    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
+    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
+    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
     }
+  }
 }
 
 local null_ls = require("null-ls")
 
 require('dap-go').setup()
 require("nvim-dap-virtual-text").setup {
-    enabled = true,                     -- enable this plugin (the default)
-    enabled_commands = true,            -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)
-    highlight_changed_variables = true, -- highlight changed values with NvimDapVirtualTextChanged, else always NvimDapVirtualText
-    highlight_new_as_changed = true,   -- highlight new variables in the same way as changed variables (if highlight_changed_variables)
-    show_stop_reason = true,            -- show stop reason when stopped for exceptions
-    commented = true,                  -- prefix virtual text with comment string
+  enabled = true,                     -- enable this plugin (the default)
+  enabled_commands = true,            -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)
+  highlight_changed_variables = true, -- highlight changed values with NvimDapVirtualTextChanged, else always NvimDapVirtualText
+  highlight_new_as_changed = true,   -- highlight new variables in the same way as changed variables (if highlight_changed_variables)
+  show_stop_reason = true,            -- show stop reason when stopped for exceptions
+  commented = true,                  -- prefix virtual text with comment string
 }
 
 require('dap')
 vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
-
 
 require('Comment').setup()
 
@@ -435,6 +434,7 @@ require('telescope').load_extension('neoclip')
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('gh')
 require("telescope").load_extension('harpoon')
+require("telescope").load_extension('goimpl')
 
 require('neogen').setup { enabled = true }
 

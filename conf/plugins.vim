@@ -64,7 +64,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-
+    Plug 'edolphin-ydf/goimpl.nvim'
     " snippets
     Plug 'honza/vim-snippets'
     Plug 'L3MON4D3/LuaSnip'
