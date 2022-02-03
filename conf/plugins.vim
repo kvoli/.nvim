@@ -33,6 +33,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " git 
     Plug 'nvim-telescope/telescope-github.nvim'
     Plug 'ruifm/gitlinker.nvim'
+    Plug 'nvim-telescope/telescope-frecency.nvim'
+    Plug 'tami5/sqlite.lua'
+
     
     " tabs/buffers
     Plug 'ap/vim-buftabline'

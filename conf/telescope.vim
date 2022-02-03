@@ -10,6 +10,12 @@ nnoremap gd <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
 nnoremap gr <cmd>lua require('telescope.builtin').lsp_references()<cr>
 nnoremap gi <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
 
+" general
+nnoremap gv <cmd>lua require('telescope.builtin').treesitter()<cr>
+
+nnoremap <leader>tch <cmd>lua require('telescope.builtin').command_history()<cr>
+nnoremap <leader>tof <cmd>lua require('telescope.builtin').oldfiles()<cr>
+
 " git 
 nnoremap <leader>gc <cmd>lua require('telescope.builtin').git_commits()<cr>
 nnoremap <leader>gbc <cmd>lua require('telescope.builtin').git_bcommits()<cr>
