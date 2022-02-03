@@ -162,3 +162,5 @@ nnoremap <C-n> :lua require("harpoon.mark").add_file()<CR>
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
+"markdown preview
+nmap <C-Q> <Plug>MarkdownPreviewToggle<CR>
