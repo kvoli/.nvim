@@ -152,9 +152,6 @@ nnoremap <silent> <leader>Do <cmd>lua require("dapui").close()<CR>
 nnoremap <silent> <leader>du <cmd>lua require("dapui").toggle()<CR>
 nnoremap <silent> <leader>ds <cmd>lua require("dapui").float_element('scopes', nil)<CR>
 
-nnoremap <C-K> <cmd> lua require("dapui").eval()<CR>
-vnoremap <C-K> <cmd> lua require("dapui").eval()<CR>
-
 " harpoon mappings
 nnoremap <C-n> :lua require("harpoon.mark").add_file()<CR>
 

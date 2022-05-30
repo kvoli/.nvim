@@ -74,7 +74,7 @@ local on_attach = function(client, bufnr)
     floating_window = true,
     floating_window_above_cur_line = true,
     fix_pos = false,
-    hint_enable = true,
+    hint_enable = false,
     hint_prefix = " ",
     hint_scheme = "String",
     use_lspsaga = false,
@@ -492,7 +492,7 @@ vim.api.nvim_set_keymap("n", "<Leader>at", ":lua require('neogen').generate({ ty
 
 require"gitlinker".setup({
   opts = {
-    remote = nil, -- force the use of a specific remote
+    remote = "source", -- force the use of a specific remote
     -- adds current line nr in the url for normal mode
     add_current_line_on_normal_mode = true,
     -- callback for what to do with the url

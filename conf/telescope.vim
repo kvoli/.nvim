@@ -5,6 +5,8 @@ nnoremap <C-m-f> <cmd>lua require('telescope.builtin').live_grep({cwd = vim.fn.e
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
+nnoremap <C-m-q> <cmd>lua require('telescope.builtin').quickfix()<cr>
+
 " lsp 
 nnoremap gd <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
 nnoremap gr <cmd>lua require('telescope.builtin').lsp_references()<cr>
