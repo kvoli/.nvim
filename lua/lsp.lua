@@ -441,6 +441,8 @@ require("telescope").load_extension('harpoon')
 require("telescope").load_extension('goimpl')
 
 require('neogen').setup { enabled = true }
+
+
 require("dapui").setup({
   icons = { expanded = "▾", collapsed = "▸" },
   mappings = {
@@ -496,6 +498,7 @@ require("dapui").setup({
     max_type_length = nil, -- Can be integer or nil.
   }
 })
+
 
 local dap, dapui = require("dap"), require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
