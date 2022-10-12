@@ -288,9 +288,6 @@ npairs.add_rules({
 }
 )
 
--- set inlay hints
-require('rust-tools.inlay_hints').set_inlay_hints()
-
 require'FTerm'.setup({
   -- Filetype of the terminal buffer
   ft = 'FTerm',
