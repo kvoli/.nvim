@@ -8,7 +8,7 @@ let base16colorspace=256  " Access colors present in 256 colorspace
 
 highlight VertSplit cterm=NONE          " rm vertical split
 highlight HorizontalSplit cterm=NONE    " rm horizontal split
-
+set completeopt=menu,menuone,noselect   " complete options
 set relativenumber                      " set relative numbering
 set hidden                              " to enable multi
 set wrap                                " Display long lines as just one line

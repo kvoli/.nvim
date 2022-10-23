@@ -62,7 +62,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<space>f', '<cmd> lua vim.lsp.buf.format{ async = true }<CR>', opts)
 
   vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, { border = border, focusable = false })
   vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, { border = border, focusable = false })
@@ -416,7 +416,12 @@ require('telescope').setup{
 
 local null_ls = require("null-ls")
 
-require('dap-go').setup()
+require('dap')
+require('dap-go').setup({
+  external_config = {
+    enabled = true,
+  }
+})
 require("nvim-dap-virtual-text").setup {
   enabled = true,                     -- enable this plugin (the default)
   enabled_commands = true,            -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)
@@ -426,7 +431,6 @@ require("nvim-dap-virtual-text").setup {
   commented = true,                  -- prefix virtual text with comment string
 }
 
-require('dap')
 vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
 
 require('Comment').setup()
