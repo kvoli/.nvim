@@ -1,8 +1,7 @@
-" Use alt + hjkl to resize windows (macOS)
-nnoremap ∆  :resize -4<CR>
-nnoremap ˚  :resize +4<CR>
-nnoremap ¬  :vertical resize -4<CR>
-nnoremap ˙  :vertical resize +4<CR>
+nnoremap <D-j>    :resize -2<CR>
+nnoremap <D-k>    :resize +2<CR>
+nnoremap <D-h>    :vertical resize -2<CR>
+nnoremap <D-l>    :vertical resize +2<CR>
 
 " Use alt + hjkl to resize windows (normal)
 nnoremap <C-j>  :resize -2<CR>
@@ -43,8 +42,8 @@ nnoremap <leader>k :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
 
 " Easy CAPS
-inoremap <c-u> <ESC>viwUi
-nnoremap <c-u> viwU<Esc>
+"inoremap <c-u> <ESC>viwUi
+"nnoremap <c-u> viwU<Esc>
 
 " TAB in general mode will move to text buffer
 nnoremap <TAB> :bnext<CR>
@@ -98,11 +97,6 @@ nmap <leader>8 <Plug>BufTabLine.Go(8)
 nmap <leader>9 <Plug>BufTabLine.Go(9)
 nmap <leader>0 <Plug>BufTabLine.Go(10)
 
-nnoremap [[ ?{<CR>w99[{
-nnoremap ][ /}<CR>b99]}
-nnoremap ]] j0[[%/{<CR>
-nnoremap [] k$][%?}<CR>
-
 " Tagbar
 nmap <C-s-t> :TagbarToggle<CR>
 
@@ -128,9 +122,13 @@ nmap T <Plug>(eft-T)
 xmap T <Plug>(eft-T)
 omap T <Plug>(eft-T)
 
+"Neogit
+nnoremap <leader>ng <cmd>Neogit<CR>
+
 "Diff View
-nnoremap <leader>dff <cmd>DiffviewOpen<CR>
-nnoremap <leader>dfc <cmd>DiffviewClose<CR>
+nnoremap <leader>vo <cmd>DiffviewOpen<CR>
+nnoremap <leader>vc <cmd>DiffviewClose<CR>
+nnoremap <leader>vh <cmd>DiffviewFileHistory %<CR>
 
 " debugger dap mappings
 nnoremap <silent> <leader>c        <cmd>lua require'dap'.continue()<CR>
@@ -161,3 +159,6 @@ xmap ga <Plug>(EasyAlign)
 
 "markdown preview
 nmap <C-Q> <Plug>MarkdownPreviewToggle<CR>
+
+" spell
+nnoremap <leader>s       <cmd>setlocal spell!<CR>

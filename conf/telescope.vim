@@ -52,3 +52,9 @@ nnoremap <leader>df <cmd>lua require('telescope').extensions.dap.frames()<CR>
 
 nnoremap <leader>dcf <cmd>lua require('telescope').extensions.dap.configurations()<CR>
 
+" todo
+nnoremap <leader>dd <cmd>TodoTelescope<CR>
+
+" arerial
+"
+nnoremap <leader>a <cmd>lua require("telescope").extensions.aerial.aerial()<CR>

@@ -42,8 +42,6 @@ set fillchars+=vert:\                   " set split char to null
 set undodir=~/.config/nvim/undo/        " set local change dir for undo plug
 set undofile                            " set undo on
 let g:polyglot_disabled = ['solidity']  " set disabled syntax hightlighting for solidity smart contracts
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
 
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -68,6 +66,9 @@ autocmd vimenter * ++nested colorscheme darcula
 "augroup END
 "
 set shell=/bin/zsh
+autocmd vimenter * ++nested highlight Folded guibg=NONE
+autocmd BufNewFile,BufRead */sql/opt/testdata/* set filetype=cropttest tw=0
+autocmd BufNewFile,BufRead */sql/testdata/* set filetype=crlogictest tw=0
 
 "autocmd VimEnter * hi Normal ctermbg=none
 autocmd vimenter * ++nested highlight LineNr ctermfg=241 ctermbg=NONE guifg=#606060 guibg=NONE

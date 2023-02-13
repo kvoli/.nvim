@@ -30,13 +30,19 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'antoinemadec/FixCursorHold.nvim'
     Plug 'AndrewRadev/splitjoin.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+    Plug 'folke/todo-comments.nvim'
+    Plug 'stevearc/aerial.nvim'
+    Plug 'kevinhwang91/promise-async'
+    Plug 'kevinhwang91/nvim-ufo'
+    Plug 'nvim-orgmode/orgmode'
 
     " git 
     Plug 'nvim-telescope/telescope-github.nvim'
     Plug 'ruifm/gitlinker.nvim'
     Plug 'nvim-telescope/telescope-frecency.nvim'
     Plug 'tami5/sqlite.lua'
-
+    Plug 'TimUntersberger/neogit'
+    Plug 'sindrets/diffview.nvim'
     
     " tabs/buffers
     Plug 'ap/vim-buftabline'
@@ -74,6 +80,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-treesitter/playground'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+    Plug 'm-demare/hlargs.nvim'
 
     " lsp 
     Plug 'neovim/nvim-lspconfig'
