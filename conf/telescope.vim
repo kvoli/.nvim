@@ -25,7 +25,7 @@ nnoremap <leader>gc <cmd>lua require('telescope.builtin').git_commits()<cr>
 nnoremap <leader>gbc <cmd>lua require('telescope.builtin').git_bcommits()<cr>
 nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>gs <cmd>lua require('telescope.builtin').git_status()<cr>
-nnoremap <leader>gh <cmd>lua require('telescope.builtin').git_stash()<cr>
+nnoremap <leader>gss <cmd>lua require('telescope.builtin').git_stash()<cr>
 nnoremap <leader>gd <cmd>lua require('mod').git_diff()<cr>
 
 nnoremap <leader>gi <cmd>lua require('telescope').extensions.gh.issues()<cr>

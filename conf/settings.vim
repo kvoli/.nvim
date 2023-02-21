@@ -50,25 +50,9 @@ if exists('+termguicolors')
 endif
 
 autocmd vimenter * ++nested colorscheme darcula
-"function! s:base16_customize() abort
-"  call Base16hi("Function", g:base16_gui06, "", "", g:base16_cterm06, "", "")
-"  call Base16hi("Include", g:base16_gui05, "", "", g:base16_cterm05, "", "")
-"  call Base16hi("Type", g:base16_gui0E, "", "", g:base16_cterm0E, "", "")
-"  call Base16hi("LineNr", g:base16_gui0F, g:base16_gui00, g:base16_cterm0F, g:base16_cterm00, "", "")
-"  call Base16hi("VertSplit", "", g:base16_gui00,"", g:base16_cterm00, "", "")
-"  call Base16hi("HorizontalSplit", "", g:base16_gui00,"", g:base16_cterm00, "", "")
-"endfunction
 
-
-"augroup on_change_colorschema
-"  autocmd!
-"  autocmd ColorScheme * call s:base16_customize()
-"augroup END
-"
 set shell=/bin/zsh
 autocmd vimenter * ++nested highlight Folded guibg=NONE
-autocmd BufNewFile,BufRead */sql/opt/testdata/* set filetype=cropttest tw=0
-autocmd BufNewFile,BufRead */sql/testdata/* set filetype=crlogictest tw=0
 
 "autocmd VimEnter * hi Normal ctermbg=none
 autocmd vimenter * ++nested highlight LineNr ctermfg=241 ctermbg=NONE guifg=#606060 guibg=NONE

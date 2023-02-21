@@ -162,3 +162,9 @@ nmap <C-Q> <Plug>MarkdownPreviewToggle<CR>
 
 " spell
 nnoremap <leader>s       <cmd>setlocal spell!<CR>
+
+" chatgpt
+nnoremap <silent> <leader>go <cmd>ChatGPT<CR>
+nnoremap <silent> <leader>gn <cmd>ChatGPTCompleteCode<CR>
+nnoremap <silent> <leader>ga <cmd>ChatGPTActAs<CR>
+nnoremap <silent> <leader>ge <cmd>ChatGPTEditWithInstructions<CR>

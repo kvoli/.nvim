@@ -35,6 +35,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'kevinhwang91/promise-async'
     Plug 'kevinhwang91/nvim-ufo'
     Plug 'nvim-orgmode/orgmode'
+    Plug 'nvim-tree/nvim-web-devicons'
+    Plug 'jackMort/ChatGPT.nvim'
+    Plug 'MunifTanjim/nui.nvim'
+
+    " test
+    Plug 'antoinemadec/FixCursorHold.nvim'
+    Plug 'nvim-neotest/neotest' 
+    Plug 'nvim-neotest/neotest-go'
 
     " git 
     Plug 'nvim-telescope/telescope-github.nvim'
@@ -43,6 +51,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tami5/sqlite.lua'
     Plug 'TimUntersberger/neogit'
     Plug 'sindrets/diffview.nvim'
+    Plug 'pwntester/octo.nvim'
+    Plug 'APZelos/blamer.nvim'
     
     " tabs/buffers
     Plug 'ap/vim-buftabline'
@@ -85,7 +95,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " lsp 
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/lsp_extensions.nvim'
-    Plug 'williamboman/nvim-lsp-installer'
+    Plug 'williamboman/mason-lspconfig.nvim'
+    Plug 'williamboman/mason.nvim'
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'j-hui/fidget.nvim'
 
@@ -111,12 +122,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'theHamsta/nvim-dap-virtual-text'
     Plug 'leoluz/nvim-dap-go'
 
-    " git
-    "Plug 'pwntester/octo.nvim'
-    "Plug 'sindrets/diffview.nvim'
-    Plug 'APZelos/blamer.nvim'
-    "Plug 'tpope/vim-fugitive'
-
     " pops
     Plug 'nvim-lua/popup.nvim'
 
@@ -127,7 +132,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug  'AckslD/nvim-neoclip.lua' 
 
     " Filetype 
-    Plug  'nathom/filetype.nvim'
 
     " Harpoon
     Plug 'ThePrimeagen/harpoon'
