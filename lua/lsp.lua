@@ -99,24 +99,9 @@ local lsp_opts = {
   }
 }
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-require('lspconfig').gopls.setup {
-  on_attach = on_attach,
-  settings = {
-    gopls = {
-      env = {
-        GOPACKAGESDRIVER = './build/bazelutil/gopackagesdriver.sh'
-      },
-      directoryFilters = {
-        "-_bazel",
-      },
-    },
-  },
-}
-
 require("mason").setup()
 require("mason-lspconfig").setup()
+require("lspconfig").gopls.setup(lsp_opts)
 require("lspconfig").dockerls.setup(lsp_opts)
 require("lspconfig").bashls.setup(lsp_opts)
 require("lspconfig").html.setup(lsp_opts)
