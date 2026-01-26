@@ -39,11 +39,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jackMort/ChatGPT.nvim'
     Plug 'MunifTanjim/nui.nvim'
 
-    " test
-    Plug 'antoinemadec/FixCursorHold.nvim'
-    Plug 'nvim-neotest/neotest' 
-    Plug 'nvim-neotest/neotest-go'
-
     " git 
     Plug 'nvim-telescope/telescope-github.nvim'
     Plug 'ruifm/gitlinker.nvim'
@@ -55,7 +50,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'APZelos/blamer.nvim'
     
     " tabs/buffers
-    Plug 'ap/vim-buftabline'
+    " Plug 'ap/vim-buftabline'
+    Plug 'romgrk/barbar.nvim'
 
     " theme
     Plug 'RRethy/nvim-base16'
@@ -97,7 +93,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-lua/lsp_extensions.nvim'
     Plug 'williamboman/mason-lspconfig.nvim'
     Plug 'williamboman/mason.nvim'
-    Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'j-hui/fidget.nvim'
 
     " lsp completion
@@ -113,14 +108,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'andersevenrud/compe-tmux', { 'branch': 'cmp' }
     Plug 'nanotee/sqls.nvim'
     Plug 'jubnzv/virtual-types.nvim'
-
-    " debug
-    Plug 'Pocco81/DAPInstall.nvim'
-    Plug 'mfussenegger/nvim-dap'
-    Plug 'nvim-telescope/telescope-dap.nvim'
-    Plug 'rcarriga/nvim-dap-ui'
-    Plug 'theHamsta/nvim-dap-virtual-text'
-    Plug 'leoluz/nvim-dap-go'
 
     " pops
     Plug 'nvim-lua/popup.nvim'

@@ -105,8 +105,23 @@ require("lspconfig").gopls.setup(lsp_opts)
 require("lspconfig").dockerls.setup(lsp_opts)
 require("lspconfig").bashls.setup(lsp_opts)
 require("lspconfig").html.setup(lsp_opts)
-require("lspconfig").tsserver.setup(lsp_opts)
+require("lspconfig").ts_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_opts.flags,
+  init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = "/usr/local/lib/node_modules/@vue/language-server",
+        languages = { "vue" },
+      },
+    },
+  },
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+}
 require("lspconfig").lua_ls.setup(lsp_opts)
+require("lspconfig").vue_ls.setup(lsp_opts)
 require("lspconfig").marksman.setup(lsp_opts)
 require("lspconfig").jedi_language_server.setup(lsp_opts)
 require("lspconfig").sqlls.setup(lsp_opts)
@@ -132,7 +147,7 @@ cmp.setup {
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-d>'] = cmp.mapping.scroll_docs( -4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
@@ -154,8 +169,8 @@ cmp.setup {
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.jumpable( -1) then
-        luasnip.jump( -1)
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
@@ -174,8 +189,8 @@ cmp.setup {
     ['<C-k>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.jumpable( -1) then
-        luasnip.jump( -1)
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
@@ -238,31 +253,31 @@ npairs.add_rule(Rule("$$", "$$", "tex"))
 local cond = require('nvim-autopairs.conds')
 
 npairs.add_rules({
-  Rule("$", "$", { "tex", "latex" })
-  -- don't add a pair if the next character is %
-  :with_pair(cond.not_after_regex_check("%%"))
-  -- don't add a pair if  the previous character is xxx
-  :with_pair(cond.not_before_regex_check("xxx", 3))
-  -- don't move right when repeat character
-  :with_move(cond.none())
-  -- don't delete if the next character is xx
-  :with_del(cond.not_after_regex_check("xx"))
-  -- disable add newline when press <cr>
-  :with_cr(cond.none())
-},
+    Rule("$", "$", { "tex", "latex" })
+    -- don't add a pair if the next character is %
+        :with_pair(cond.not_after_regex_check("%%"))
+    -- don't add a pair if  the previous character is xxx
+        :with_pair(cond.not_before_regex_check("xxx", 3))
+    -- don't move right when repeat character
+        :with_move(cond.none())
+    -- don't delete if the next character is xx
+        :with_del(cond.not_after_regex_check("xx"))
+    -- disable add newline when press <cr>
+        :with_cr(cond.none())
+  },
   --it is not working on .vim but it working on another filetype
   Rule("a", "a", "-vim")
 )
 
 npairs.add_rules({
   Rule("$$", "$$", "tex")
-  :with_pair(function(opts)
-    print(vim.inspect(opts))
-    if opts.line == "aa $$" then
-      -- don't add pair on that line
-      return false
-    end
-  end)
+      :with_pair(function(opts)
+        print(vim.inspect(opts))
+        if opts.line == "aa $$" then
+          -- don't add pair on that line
+          return false
+        end
+      end)
 }
 )
 
@@ -287,9 +302,9 @@ require 'FTerm'.setup({
   -- The value for each field should be between `0` and `1`
   dimensions = {
     height = 0.85, -- Height of the terminal window
-    width = 0.85, -- Width of the terminal window
-    x = 0.5, -- X axis of the terminal window
-    y = 0.5, -- Y axis of the terminal window
+    width = 0.85,  -- Width of the terminal window
+    x = 0.5,       -- X axis of the terminal window
+    y = 0.5,       -- Y axis of the terminal window
   },
   -- Callback invoked when the terminal exits.
   -- See `:h jobstart-options`
@@ -378,40 +393,26 @@ require('telescope').setup {
   },
   extensions = {
     fzf = {
-      fuzzy = true, -- false will only do exact matching
+      fuzzy = true,                   -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
-      override_file_sorter = true, -- override the file sorter
-      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+      override_file_sorter = true,    -- override the file sorter
+      case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
     }
   }
 }
 
-local null_ls = require("null-ls")
-
-null_ls.setup({
-  sources = {
-    null_ls.builtins.formatting.eslint_d,
-    null_ls.builtins.diagnostics.proselint,
-    null_ls.builtins.code_actions.proselint,
-    null_ls.builtins.hover.printenv,
-  },
-})
-
-require('dap')
-require('dap-go').setup({
-  external_config = {
-    enabled = true,
-  }
-})
-require("nvim-dap-virtual-text").setup {
-  enabled = true, -- enable this plugin (the default)
-  enabled_commands = true, -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)
-  highlight_changed_variables = true, -- highlight changed values with NvimDapVirtualTextChanged, else always NvimDapVirtualText
-  highlight_new_as_changed = true, -- highlight new variables in the same way as changed variables (if highlight_changed_variables)
-  show_stop_reason = true, -- show stop reason when stopped for exceptions
-  commented = true, -- prefix virtual text with comment string
-}
+-- local null_ls = require("null-ls")
+--
+-- null_ls.setup({
+--   sources = {
+--     null_ls.builtins.formatting.eslint_d,
+--     null_ls.builtins.diagnostics.proselint,
+--     null_ls.builtins.code_actions.proselint,
+--     null_ls.builtins.hover.printenv,
+--   },
+-- })
+--
 
 vim.fn.sign_define('DapBreakpoint', { text = 'B', texthl = '', linehl = '', numhl = '' })
 
@@ -426,144 +427,7 @@ require('telescope').load_extension('aerial')
 
 require('neogen').setup { enabled = true }
 
-
-require("dapui").setup({
-  icons = { expanded = "▾", collapsed = "▸" },
-  mappings = {
-    -- Use a table to apply multiple mappings
-    expand = { "<CR>", "<2-LeftMouse>" },
-    open = "o",
-    remove = "d",
-    edit = "e",
-    repl = "r",
-    toggle = "t",
-  },
-  -- Expand lines larger than the window
-  -- Requires >= 0.7
-  expand_lines = vim.fn.has("nvim-0.7"),
-  -- Layouts define sections of the screen to place windows.
-  -- The position can be "left", "right", "top" or "bottom".
-  -- The size specifies the height/width depending on position. It can be an Int
-  -- or a Float. Integer specifies height/width directly (i.e. 20 lines/columns) while
-  -- Float value specifies percentage (i.e. 0.3 - 30% of available lines/columns)
-  -- Elements are the elements shown in the layout (in order).
-  -- Layouts are opened in order so that earlier layouts take priority in window sizing.
-  layouts = {
-    {
-      elements = {
-        -- Elements can be strings or table with id and size keys.
-        { id = "scopes", size = 0.25 },
-        "breakpoints",
-        "stacks",
-        "watches",
-      },
-      size = 40, -- 40 columns
-      position = "left",
-    },
-    {
-      elements = {
-        "repl",
-        "console",
-      },
-      size = 0.25, -- 25% of total lines
-      position = "bottom",
-    },
-  },
-  floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "single", -- Border style. Can be "single", "double" or "rounded"
-    mappings = {
-      close = { "q", "<Esc>" },
-    },
-  },
-  windows = { indent = 1 },
-  render = {
-    max_type_length = nil, -- Can be integer or nil.
-  }
-})
-local neogit = require("neogit")
-
-neogit.setup {
-  disable_signs = false,
-  disable_hint = false,
-  disable_context_highlighting = false,
-  disable_commit_confirmation = false,
-  -- Neogit refreshes its internal state after specific events, which can be expensive depending on the repository size.
-  -- Disabling `auto_refresh` will make it so you have to manually refresh the status after you open it.
-  auto_refresh = true,
-  disable_builtin_notifications = false,
-  use_magit_keybindings = false,
-  -- Change the default way of opening neogit
-  kind = "tab",
-  -- The time after which an output console is shown for slow running commands
-  console_timeout = 2000,
-  -- Automatically show console if a command takes more than console_timeout milliseconds
-  auto_show_console = true,
-  -- Change the default way of opening the commit popup
-  commit_popup = {
-    kind = "split",
-  },
-  -- Change the default way of opening popups
-  popup = {
-    kind = "split",
-  },
-  -- customize displayed signs
-  signs = {
-    -- { CLOSED, OPENED }
-    section = { ">", "v" },
-    item = { ">", "v" },
-    hunk = { "", "" },
-  },
-  integrations = {
-    diffview = true
-  },
-  -- Setting any section to `false` will make the section not render at all
-  sections = {
-    untracked = {
-      folded = false
-    },
-    unstaged = {
-      folded = false
-    },
-    staged = {
-      folded = false
-    },
-    stashes = {
-      folded = true
-    },
-    unpulled = {
-      folded = true
-    },
-    unmerged = {
-      folded = false
-    },
-    recent = {
-      folded = true
-    },
-  },
-  -- override/add mappings
-  mappings = {
-    -- modify status buffer mappings
-    status = {
-      -- Adds a mapping with "B" as key that does the "BranchPopup" command
-      ["B"] = "BranchPopup",
-    }
-  }
-}
-
-
-
-local dap, dapui = require("dap"), require("dapui")
-dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
-end
+require("neogit").setup()
 
 
 local opts = { noremap = true, silent = true }
@@ -599,7 +463,7 @@ require('aerial').setup({
 vim.keymap.set('n', '<leader>A', '<cmd>AerialToggle!<CR>')
 
 vim.o.foldcolumn = '0' -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
@@ -655,7 +519,6 @@ require('nvim-treesitter.configs').setup {
     -- code block highlights that do not have ts grammar
     additional_vim_regex_highlighting = { 'org' },
   },
-  ensure_installed = { 'org' }, -- Or run :TSUpdate org
 }
 
 require 'nvim-web-devicons'.setup()
@@ -663,14 +526,14 @@ require 'nvim-web-devicons'.setup()
 local actions = require("diffview.actions")
 
 require("diffview").setup({
-  diff_binaries = false, -- Show diffs for binaries
+  diff_binaries = false,    -- Show diffs for binaries
   enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
-  git_cmd = { "git" }, -- The git executable followed by default args.
-  hg_cmd = { "hg" }, -- The hg executable followed by default args.
-  use_icons = true, -- Requires nvim-web-devicons
-  show_help_hints = true, -- Show hints for how to open the help panel
-  watch_index = true, -- Update views and index buffers when the git index changes.
-  icons = { -- Only applies when use_icons is true.
+  git_cmd = { "git" },      -- The git executable followed by default args.
+  hg_cmd = { "hg" },        -- The hg executable followed by default args.
+  use_icons = true,         -- Requires nvim-web-devicons
+  show_help_hints = true,   -- Show hints for how to open the help panel
+  watch_index = true,       -- Update views and index buffers when the git index changes.
+  icons = {                 -- Only applies when use_icons is true.
     folder_closed = "",
     folder_open = "",
   },
@@ -679,7 +542,7 @@ require("diffview").setup({
     fold_open = "",
     done = "✓",
   },
-  hooks = {}, -- See ':h diffview-config-hooks'
+  hooks = {},                 -- See ':h diffview-config-hooks'
   keymaps = {
     disable_defaults = false, -- Disable the default keymaps
     view = {
@@ -735,7 +598,7 @@ require("diffview").setup({
       { "n", "U",             actions.unstage_all,         { desc = "Unstage all entries." } },
       { "n", "X",             actions.restore_entry,       { desc = "Restore entry to the state on the left side." } },
       { "n", "L",             actions.open_commit_log,     { desc = "Open the commit log panel." } },
-      { "n", "<c-b>",         actions.scroll_view( -0.25), { desc = "Scroll the view up" } },
+      { "n", "<c-b>",         actions.scroll_view(-0.25),  { desc = "Scroll the view up" } },
       { "n", "<c-f>",         actions.scroll_view(0.25),   { desc = "Scroll the view down" } },
       { "n", "<tab>",         actions.select_next_entry,   { desc = "Open the diff for the next file" } },
       { "n", "<s-tab>",       actions.select_prev_entry,   { desc = "Open the diff for the previous file" } },
@@ -766,7 +629,7 @@ require("diffview").setup({
       { "n", "<cr>",          actions.select_entry,               { desc = "Open the diff for the selected entry." } },
       { "n", "o",             actions.select_entry,               { desc = "Open the diff for the selected entry." } },
       { "n", "<2-LeftMouse>", actions.select_entry,               { desc = "Open the diff for the selected entry." } },
-      { "n", "<c-b>",         actions.scroll_view( -0.25),        { desc = "Scroll the view up" } },
+      { "n", "<c-b>",         actions.scroll_view(-0.25),         { desc = "Scroll the view up" } },
       { "n", "<c-f>",         actions.scroll_view(0.25),          { desc = "Scroll the view down" } },
       { "n", "<tab>",         actions.select_next_entry,          { desc = "Open the diff for the next file" } },
       { "n", "<s-tab>",       actions.select_prev_entry,          { desc = "Open the diff for the previous file" } },
@@ -790,8 +653,145 @@ require("diffview").setup({
   },
 })
 
-require("neotest").setup({
-  adapters = {
-    require("neotest-go"),
+vim.g.barbar_auto_setup = false -- disable auto-setup
+
+require'barbar'.setup {
+  -- WARN: do not copy everything below into your config!
+  --       It is just an example of what configuration options there are.
+  --       The defaults are suitable for most people.
+
+  -- Enable/disable animations
+  animation = false,
+
+  -- Automatically hide the tabline when there are this many buffers left.
+  -- Set to any value >=0 to enable.
+  auto_hide = false,
+
+  -- Enable/disable current/total tabpages indicator (top right corner)
+  tabpages = true,
+
+  -- Enables/disable clickable tabs
+  --  - left-click: go to buffer
+  --  - middle-click: delete buffer
+  clickable = true,
+
+  -- Excludes buffers from the tabline
+  exclude_ft = {},
+  exclude_name = {},
+
+  -- A buffer to this direction will be focused (if it exists) when closing the current buffer.
+  -- Valid options are 'left' (the default), 'previous', and 'right'
+  focus_on_close = 'left',
+
+  -- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
+  hide = {extensions = true, inactive = true},
+
+  -- Disable highlighting alternate buffers
+  highlight_alternate = false,
+
+  -- Disable highlighting file icons in inactive buffers
+  highlight_inactive_file_icons = false,
+
+  -- Enable highlighting visible buffers
+  highlight_visible = true,
+
+  icons = {
+    -- Configure the base icons on the bufferline.
+    -- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
+    buffer_index = true,
+    buffer_number = true,
+    button = '',
+    -- Enables / disables diagnostic symbols
+    diagnostics = {
+      [vim.diagnostic.severity.ERROR] = {enabled = true, icon = 'ﬀ'},
+      [vim.diagnostic.severity.WARN] = {enabled = false},
+      [vim.diagnostic.severity.INFO] = {enabled = false},
+      [vim.diagnostic.severity.HINT] = {enabled = true},
+    },
+    gitsigns = {
+      added = {enabled = true, icon = '+'},
+      changed = {enabled = true, icon = '~'},
+      deleted = {enabled = true, icon = '-'},
+    },
+    filetype = {
+      -- Sets the icon's highlight group.
+      -- If false, will use nvim-web-devicons colors
+      custom_colors = false,
+
+      -- Requires `nvim-web-devicons` if `true`
+      enabled = false,
+    },
+    separator = {left = '▎', right = ''},
+
+    -- If true, add an additional separator at the end of the buffer list
+    separator_at_end = true,
+
+    -- Configure the icons on the bufferline when modified or pinned.
+    -- Supports all the base icon options.
+    modified = {button = '●'},
+    pinned = {button = '', filename = true},
+
+    -- Use a preconfigured buffer appearance— can be 'default', 'powerline', or 'slanted'
+    preset = 'default',
+
+    -- Configure the icons on the bufferline based on the visibility of a buffer.
+    -- Supports all the base icon options, plus `modified` and `pinned`.
+    alternate = {filetype = {enabled = false}},
+    current = {buffer_index = true},
+    inactive = {button = '×'},
+    visible = {modified = {buffer_number = false}},
   },
-})
+
+  -- If true, new buffers will be inserted at the start/end of the list.
+  -- Default is to insert after current buffer.
+  insert_at_end = false,
+  insert_at_start = false,
+
+  -- Sets the maximum padding width with which to surround each tab
+  maximum_padding = 1,
+
+  -- Sets the minimum padding width with which to surround each tab
+  minimum_padding = 1,
+
+  -- Sets the maximum buffer name length.
+  maximum_length = 30,
+
+  -- Sets the minimum buffer name length.
+  minimum_length = 0,
+
+  -- If set, the letters for each buffer in buffer-pick mode will be
+  -- assigned based on their name. Otherwise or in case all letters are
+  -- already assigned, the behavior is to assign letters in order of
+  -- usability (see order below)
+  semantic_letters = true,
+
+  -- Set the filetypes which barbar will offset itself for
+  sidebar_filetypes = {
+    -- Use the default values: {event = 'BufWinLeave', text = '', align = 'left'}
+    NvimTree = true,
+    -- Or, specify the text used for the offset:
+    undotree = {
+      text = 'undotree',
+      align = 'center', -- *optionally* specify an alignment (either 'left', 'center', or 'right')
+    },
+    -- Or, specify the event which the sidebar executes when leaving:
+    ['neo-tree'] = {event = 'BufWipeout'},
+    -- Or, specify all three
+    Outline = {event = 'BufWinLeave', text = 'symbols-outline', align = 'right'},
+  },
+
+  -- New buffer letters are assigned in this order. This order is
+  -- optimal for the qwerty keyboard layout but might need adjustment
+  -- for other layouts.
+  letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
+
+  -- Sets the name of unnamed buffers. By default format is "[Buffer X]"
+  -- where X is the buffer number. But only a static string is accepted here.
+  no_name_title = nil,
+
+  -- sorting options
+  sort = {
+    -- tells barbar to ignore case differences while sorting buffers
+    ignore_case = true,
+  },
+}

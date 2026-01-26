@@ -86,16 +86,27 @@ inoremap <C-g> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" 
 nnoremap <C-g> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
 " map tab swap on leader-<n in (1..9)>
-nmap <leader>1 <Plug>BufTabLine.Go(1)
-nmap <leader>2 <Plug>BufTabLine.Go(2)
-nmap <leader>3 <Plug>BufTabLine.Go(3)
-nmap <leader>4 <Plug>BufTabLine.Go(4)
-nmap <leader>5 <Plug>BufTabLine.Go(5)
-nmap <leader>6 <Plug>BufTabLine.Go(6)
-nmap <leader>7 <Plug>BufTabLine.Go(7)
-nmap <leader>8 <Plug>BufTabLine.Go(8)
-nmap <leader>9 <Plug>BufTabLine.Go(9)
-nmap <leader>0 <Plug>BufTabLine.Go(10)
+" nmap <leader>1 <Plug>BufTabLine.Go(1)
+" nmap <leader>2 <Plug>BufTabLine.Go(2)
+" nmap <leader>3 <Plug>BufTabLine.Go(3)
+" nmap <leader>4 <Plug>BufTabLine.Go(4)
+" nmap <leader>5 <Plug>BufTabLine.Go(5)
+" nmap <leader>6 <Plug>BufTabLine.Go(6)
+" nmap <leader>7 <Plug>BufTabLine.Go(7)
+" nmap <leader>8 <Plug>BufTabLine.Go(8)
+" nmap <leader>9 <Plug>BufTabLine.Go(9)
+" nmap <leader>0 <Plug>BufTabLine.Go(10)
+
+nnoremap <leader>1 <Cmd>BufferGoto 1<CR>
+nnoremap <leader>2 <Cmd>BufferGoto 2<CR>
+nnoremap <leader>3 <Cmd>BufferGoto 3<CR>
+nnoremap <leader>4 <Cmd>BufferGoto 4<CR>
+nnoremap <leader>5 <Cmd>BufferGoto 5<CR>
+nnoremap <leader>6 <Cmd>BufferGoto 6<CR>
+nnoremap <leader>7 <Cmd>BufferGoto 7<CR>
+nnoremap <leader>8 <Cmd>BufferGoto 8<CR>
+nnoremap <leader>9 <Cmd>BufferGoto 9<CR>
+nnoremap <leader>0 <Cmd>BufferLast<CR>
 
 " Tagbar
 nmap <C-s-t> :TagbarToggle<CR>
