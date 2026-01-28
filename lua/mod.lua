@@ -1,13 +1,4 @@
---[[ ========================================================================
-"                     .___   .__                
-"    _____   ____   __| _/   |  |  __ _______   
-"   /     \ /  _ \ / __ |    |  | |  |  \__  \  
-"  |  Y Y  (  <_> ) /_/ |    |  |_|  |  // __ \_
-"  |__|_|  /\____/\____ | /\ |____/____/(____  /
-"        \/            \/ \/                 \/
-" =========================================================================== ]]
 local M = {}
--- Telescope {{{
 local action_state = require "telescope.actions.state"
 local themes = require "telescope.themes"
 local builtin = require "telescope.builtin"
@@ -96,6 +87,5 @@ function M.lsp_implementations()
   }
   builtin.lsp_implementations(opts)
 end
--- }}}
+
 return M
--- [[ ----------------------------------------------------------------------- ]]

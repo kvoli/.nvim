@@ -20,14 +20,8 @@ call wilder#set_option('pipeline', [
 call wilder#set_option('renderer', wilder#renderer_mux({
       \ ':': wilder#popupmenu_renderer({
       \   'highlighter': wilder#lua_fzy_highlighter(),
-      \   'left': [
-      \     ' ',
-      \     wilder#popupmenu_devicons(),
-      \   ],
-      \   'right': [
-      \     ' ',
-      \     wilder#popupmenu_scrollbar(),
-      \   ],
+      \   'left': [' ', wilder#popupmenu_devicons()],
+      \   'right': [' ', wilder#popupmenu_scrollbar()],
       \   'max_height': '15%',
       \ }),
       \ '/': wilder#popupmenu_renderer({
@@ -35,4 +29,3 @@ call wilder#set_option('renderer', wilder#renderer_mux({
       \   'max_height': '15%',
       \ }),
       \ }))
-
