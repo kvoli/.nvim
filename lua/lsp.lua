@@ -1,8 +1,6 @@
 -- Bloated file!
 -- need to split it up into lsp, completion and other.
 --
-
-local lspconfig = require('lspconfig')
 local types = require('cmp.types')
 local WIDE_HEIGHT = 40
 
@@ -101,17 +99,24 @@ local lsp_opts = {
 
 require("mason").setup()
 require("mason-lspconfig").setup()
-require("lspconfig").gopls.setup(lsp_opts)
-require("lspconfig").dockerls.setup(lsp_opts)
-require("lspconfig").bashls.setup(lsp_opts)
-require("lspconfig").html.setup(lsp_opts)
-require("lspconfig").tsserver.setup(lsp_opts)
-require("lspconfig").lua_ls.setup(lsp_opts)
-require("lspconfig").marksman.setup(lsp_opts)
-require("lspconfig").jedi_language_server.setup(lsp_opts)
-require("lspconfig").sqlls.setup(lsp_opts)
-require("lspconfig").taplo.setup(lsp_opts)
-require("lspconfig").yamlls.setup(lsp_opts)
+
+local servers = {
+  'gopls',
+  'dockerls',
+  'bashls',
+  'html',
+  'lua_ls',
+  'marksman',
+  'jedi_language_server',
+  'sqlls',
+  'taplo',
+  'yamlls',
+}
+
+for _, server in ipairs(servers) do
+  vim.lsp.config(server, lsp_opts)
+  vim.lsp.enable(server)
+end
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -219,7 +224,6 @@ cmp.setup {
 
 
 
-require('rust-tools').setup({})
 local Rule = require('nvim-autopairs.rule')
 local npairs = require('nvim-autopairs')
 
@@ -334,6 +338,7 @@ local new_maker = function(filepath, bufnr, opts)
 end
 
 local actions = require('telescope.actions')
+
 require('telescope').setup {
   defaults = {
     buffer_previewer_maker = new_maker,
@@ -421,7 +426,6 @@ require('telescope').load_extension('neoclip')
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('gh')
 require("telescope").load_extension('harpoon')
-require("telescope").load_extension('goimpl')
 require('telescope').load_extension('aerial')
 
 require('neogen').setup { enabled = true }
@@ -646,16 +650,8 @@ require('ufo').setup({
 
 
 -- Treesitter configuration
-require('nvim-treesitter.configs').setup {
-  -- If TS highlights are not enabled at all, or disabled via `disable` prop,
-  -- highlighting will fallback to default Vim syntax highlighting
-  highlight = {
-    enable = true,
-    -- Required for spellcheck, some LaTex highlights and
-    -- code block highlights that do not have ts grammar
-    additional_vim_regex_highlighting = { 'org' },
-  },
-  ensure_installed = { 'org' }, -- Or run :TSUpdate org
+require'nvim-treesitter'.install {
+    ensure_installed = { "c", "cpp", "rust", "bash", "comment", "lua", "go", "zig"},
 }
 
 require 'nvim-web-devicons'.setup()
@@ -787,11 +783,5 @@ require("diffview").setup({
       { "n", "q",     actions.close, { desc = "Close help menu" } },
       { "n", "<esc>", actions.close, { desc = "Close help menu" } },
     },
-  },
-})
-
-require("neotest").setup({
-  adapters = {
-    require("neotest-go"),
   },
 })

@@ -58,5 +58,6 @@ autocmd vimenter * ++nested highlight Folded guibg=NONE
 autocmd vimenter * ++nested highlight LineNr ctermfg=241 ctermbg=NONE guifg=#606060 guibg=NONE
 autocmd vimenter * ++nested highlight Pmenu ctermfg=241 ctermbg=NONE guifg=#606060 guibg=NONE
 autocmd vimenter * ++nested highlight SignColumn cterm=bold ctermfg=11 ctermbg=NONE gui=bold guifg=#ffff60 guibg=NONE
+autocmd vimenter * ++nested highlight BufTabLineFill guibg=#000000 ctermbg=0
 " autocmd vimenter * ++nested highlight NvimDapVirtualText cterm=bold gui=bold 
 

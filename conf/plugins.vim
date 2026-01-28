@@ -63,7 +63,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " languages
     Plug 'lervag/vimtex'
-    Plug 'simrat39/rust-tools.nvim'
+    Plug 'mrcjkb/rustaceanvim'
     Plug 'ziglang/zig.vim'
     Plug 'florentc/vim-tla'
     Plug 'peitalin/vim-jsx-typescript'
@@ -87,9 +87,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'L3MON4D3/LuaSnip'
 
     " treesitter
-    Plug 'nvim-treesitter/playground'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'm-demare/hlargs.nvim'
 
     " lsp 
