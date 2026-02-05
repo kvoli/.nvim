@@ -1,0 +1,135 @@
+return {
+  -- startpage
+  { 'mhinz/vim-startify', lazy = false },
+
+  -- misc
+  { 'tpope/vim-vinegar', lazy = false },
+  { 'numToStr/Comment.nvim', lazy = false },
+  { 'mbbill/undotree', lazy = false },
+  { 'tpope/vim-surround', lazy = false },
+  { 'windwp/nvim-autopairs', lazy = false },
+  { 'chiel92/vim-autoformat', lazy = false },
+  { 'irfansharif/vim-crlfmt', lazy = false },
+  { 'numtostr/FTerm.nvim', lazy = false },
+  { 'norcalli/nvim-colorizer.lua', lazy = false },
+  { 'phaazon/hop.nvim', lazy = false },
+  { 'hrsh7th/vim-eft', lazy = false },
+  { 'gelguy/wilder.nvim', lazy = false, build = ':UpdateRemotePlugins' },
+  { 'tpope/vim-repeat', lazy = false },
+  { 'jghauser/mkdir.nvim', lazy = false },
+  { 'junegunn/vim-easy-align', lazy = false },
+  { 'antoinemadec/FixCursorHold.nvim', lazy = false },
+  { 'AndrewRadev/splitjoin.vim', lazy = false },
+  { 'iamcco/markdown-preview.nvim', lazy = false, build = 'cd app && yarn install' },
+  { 'folke/todo-comments.nvim', lazy = false },
+  { 'stevearc/aerial.nvim', lazy = false },
+  { 'kevinhwang91/promise-async', lazy = false },
+  { 'kevinhwang91/nvim-ufo', lazy = false },
+  { 'nvim-orgmode/orgmode', lazy = false },
+  { 'nvim-tree/nvim-web-devicons', lazy = false },
+  { 'jackMort/ChatGPT.nvim', lazy = false },
+  { 'MunifTanjim/nui.nvim', lazy = false },
+  {
+    'kawre/leetcode.nvim',
+    lazy = false,
+    build = ':TSUpdate html',
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+    opts = {},
+  },
+
+  -- test
+  { 'nvim-neotest/neotest', lazy = false },
+  { 'nvim-neotest/neotest-go', lazy = false },
+
+  -- git
+  { 'nvim-telescope/telescope-github.nvim', lazy = false },
+  { 'ruifm/gitlinker.nvim', lazy = false },
+  { 'nvim-telescope/telescope-frecency.nvim', lazy = false },
+  { 'tami5/sqlite.lua', lazy = false },
+  { 'TimUntersberger/neogit', lazy = false },
+  { 'sindrets/diffview.nvim', lazy = false },
+  { 'pwntester/octo.nvim', lazy = false },
+  { 'APZelos/blamer.nvim', lazy = false },
+
+  -- tabs/buffers
+  { 'ap/vim-buftabline', lazy = false },
+
+  -- theme
+  { 'RRethy/nvim-base16', lazy = false },
+  { 'kvoli/voidarcula', lazy = false },
+
+  -- languages
+  { 'lervag/vimtex', lazy = false },
+  { 'mrcjkb/rustaceanvim', lazy = false },
+  { 'ziglang/zig.vim', lazy = false },
+  { 'florentc/vim-tla', lazy = false },
+  { 'peitalin/vim-jsx-typescript', lazy = false },
+  { 'pangloss/vim-javascript', lazy = false },
+  { 'leafgarland/typescript-vim', lazy = false },
+  { 'styled-components/vim-styled-components', lazy = false, branch = 'main' },
+  { 'mickael-menu/zk-nvim', lazy = false },
+
+  -- syntax
+  { 'vim-syntastic/syntastic', lazy = false },
+  { 'sheerun/vim-polyglot', lazy = false },
+
+  -- fuzzy finder
+  { 'junegunn/fzf', lazy = false, build = function() vim.fn['fzf#install']() end },
+  { 'nvim-lua/plenary.nvim', lazy = false },
+  { 'nvim-telescope/telescope.nvim', lazy = false },
+  { 'nvim-telescope/telescope-fzf-native.nvim', lazy = false, build = 'make' },
+  { 'edolphin-ydf/goimpl.nvim', lazy = false },
+
+  -- snippets
+  { 'honza/vim-snippets', lazy = false },
+  { 'L3MON4D3/LuaSnip', lazy = false },
+
+  -- treesitter
+  { 'nvim-treesitter/nvim-treesitter', lazy = false, build = ':TSUpdate' },
+  { 'm-demare/hlargs.nvim', lazy = false },
+
+  -- lsp
+  { 'neovim/nvim-lspconfig', lazy = false },
+  { 'nvim-lua/lsp_extensions.nvim', lazy = false },
+  { 'williamboman/mason-lspconfig.nvim', lazy = false },
+  { 'williamboman/mason.nvim', lazy = false },
+  { 'jose-elias-alvarez/null-ls.nvim', lazy = false },
+  { 'j-hui/fidget.nvim', lazy = false },
+
+  -- lsp completion
+  { 'hrsh7th/nvim-cmp', lazy = false },
+  { 'hrsh7th/cmp-buffer', lazy = false },
+  { 'hrsh7th/cmp-nvim-lua', lazy = false },
+  { 'hrsh7th/cmp-nvim-lsp', lazy = false },
+  { 'hrsh7th/cmp-path', lazy = false },
+  { 'saadparwaiz1/cmp_luasnip', lazy = false },
+  { 'ray-x/lsp_signature.nvim', lazy = false },
+  { 'nanotee/sqls.nvim', lazy = false },
+  { 'jubnzv/virtual-types.nvim', lazy = false },
+
+  -- debug
+  { 'Pocco81/DAPInstall.nvim', lazy = false },
+  { 'mfussenegger/nvim-dap', lazy = false },
+  { 'nvim-telescope/telescope-dap.nvim', lazy = false },
+  { 'rcarriga/nvim-dap-ui', lazy = false },
+  { 'theHamsta/nvim-dap-virtual-text', lazy = false },
+  { 'leoluz/nvim-dap-go', lazy = false },
+
+  -- popups
+  { 'nvim-lua/popup.nvim', lazy = false },
+
+  -- comment gen
+  { 'danymat/neogen', lazy = false },
+
+  -- clipboard manager
+  { 'AckslD/nvim-neoclip.lua', lazy = false },
+
+  -- harpoon
+  { 'ThePrimeagen/harpoon', lazy = false },
+}

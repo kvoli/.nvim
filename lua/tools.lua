@@ -11,6 +11,8 @@ if fterm_ok then
   })
   vim.api.nvim_set_keymap('n', '<C-t>', '<CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('t', '<C-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', '<C-_>', '<CMD>lua require("FTerm").scratch({ cmd = {"claude"} })<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('t', '<C-_>', '<C-\\><C-n><CMD>lua require("FTerm").scratch({ cmd = {"claude"} })<CR>', { noremap = true, silent = true })
 end
 
 pcall(function() require('neoclip').setup() end)
