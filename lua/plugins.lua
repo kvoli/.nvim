@@ -39,8 +39,22 @@ return {
       'MunifTanjim/nui.nvim',
       'nvim-treesitter/nvim-treesitter',
       'nvim-tree/nvim-web-devicons',
+      '3rd/image.nvim',
     },
-    opts = {},
+    opts = {
+      image_support = true,
+    },
+    config = function(_, opts)
+      require("leetcode").setup(opts)
+      vim.api.nvim_create_autocmd("WinEnter", {
+        callback = function()
+          if vim.bo.filetype == "leetcode.nvim" then
+            vim.wo.wrap = true
+            vim.wo.linebreak = true
+          end
+        end,
+      })
+    end,
   },
 
   -- test
@@ -99,7 +113,7 @@ return {
   { 'nvim-lua/lsp_extensions.nvim', lazy = false },
   { 'williamboman/mason-lspconfig.nvim', lazy = false },
   { 'williamboman/mason.nvim', lazy = false },
-  { 'jose-elias-alvarez/null-ls.nvim', lazy = false },
+  { 'nvimtools/none-ls.nvim', lazy = false },
   { 'j-hui/fidget.nvim', lazy = false },
 
   -- lsp completion

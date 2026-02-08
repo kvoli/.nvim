@@ -163,8 +163,9 @@ nmap <C-Q> <Plug>MarkdownPreviewToggle<CR>
 " spell
 nnoremap <leader>s       <cmd>setlocal spell!<CR>
 
-" chatgpt
-nnoremap <silent> <leader>go <cmd>ChatGPT<CR>
-nnoremap <silent> <leader>gn <cmd>ChatGPTCompleteCode<CR>
-nnoremap <silent> <leader>ga <cmd>ChatGPTActAs<CR>
-nnoremap <silent> <leader>ge <cmd>ChatGPTEditWithInstructions<CR>
+" lc
+nnoremap <leader>lcs <cmd>Leet submit<CR>
+nnoremap <leader>lcr <cmd>Leet run<CR>
+nnoremap <leader>lcm <cmd>Leet menu<CR>
+nnoremap <leader>lcc <cmd>Leet console<CR>
+

@@ -104,7 +104,6 @@ local null_ls_ok, null_ls = pcall(require, "null-ls")
 if null_ls_ok then
   null_ls.setup({
     sources = {
-      null_ls.builtins.formatting.eslint_d,
       null_ls.builtins.diagnostics.proselint,
       null_ls.builtins.code_actions.proselint,
       null_ls.builtins.hover.printenv,
