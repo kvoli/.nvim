@@ -30,7 +30,7 @@ return {
   { 'jackMort/ChatGPT.nvim', lazy = false },
   { 'MunifTanjim/nui.nvim', lazy = false },
   {
-    'kawre/leetcode.nvim',
+    dir = '/Users/kvoli/Documents/projects/leetcode.nvim',
     lazy = false,
     build = ':TSUpdate html',
     dependencies = {

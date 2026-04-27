@@ -100,6 +100,28 @@ for _, server in ipairs(servers) do
   end)
 end
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'go',
+  callback = function(args)
+    vim.schedule(function()
+      if not vim.api.nvim_buf_is_valid(args.buf) then return end
+      vim.bo[args.buf].textwidth = 80
+      vim.bo[args.buf].formatprg = ''
+      vim.api.nvim_buf_call(args.buf, function()
+        vim.opt_local.formatoptions:append('cq')
+      end)
+    end)
+  end,
+})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    if vim.bo[args.buf].filetype == 'go' then
+      vim.bo[args.buf].formatexpr = ''
+    end
+  end,
+})
+
 local null_ls_ok, null_ls = pcall(require, "null-ls")
 if null_ls_ok then
   null_ls.setup({
