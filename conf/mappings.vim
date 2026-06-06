@@ -140,15 +140,15 @@ nnoremap <silent> <leader>B        <cmd>lua require'dap'.set_breakpoint()<CR>
 nnoremap <silent> <leader>bc       <cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
 nnoremap <silent> <leader>lp       <cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 nnoremap <silent> <leader>Bdr      <cmd>lua require'dap'.repl.open()<CR>
-nnoremap <silent> <leader>dl       <cmd>lua require'dap'.run_last()<CR>
+nnoremap <silent> <leader>xl       <cmd>lua require'dap'.run_last()<CR>
 nnoremap <silent> <leader>rc       <cmd>lua require'dap'.run_to_cursor()<CR>
 
 nnoremap <silent> <leader>td  <cmd>lua require('dap-go').debug_test()<CR>
 
-nnoremap <silent> <leader>do <cmd>lua require("dapui").open()<CR>
+nnoremap <silent> <leader>xo <cmd>lua require("dapui").open()<CR>
 nnoremap <silent> <leader>Do <cmd>lua require("dapui").close()<CR>
-nnoremap <silent> <leader>du <cmd>lua require("dapui").toggle()<CR>
-nnoremap <silent> <leader>ds <cmd>lua require("dapui").float_element('scopes', nil)<CR>
+nnoremap <silent> <leader>xu <cmd>lua require("dapui").toggle()<CR>
+nnoremap <silent> <leader>xs <cmd>lua require("dapui").float_element('scopes', nil)<CR>
 
 " harpoon mappings
 nnoremap <C-n> :lua require("harpoon.mark").add_file()<CR>

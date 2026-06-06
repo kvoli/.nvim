@@ -57,7 +57,7 @@ return {
 
   -- ai: Claude Code integration. Lazy-loaded on its commands/keys so it adds
   -- zero startup cost. Replaces the old FTerm `claude` scratch on <C-_>.
-  -- Keys live under the free <leader>C namespace (<leader>a/<leader>c are taken).
+  -- Keys live under the <leader>d namespace; dap/dapui pickers moved to <leader>x.
   {
     'coder/claudecode.nvim',
     dependencies = { 'folke/snacks.nvim' },
@@ -66,15 +66,15 @@ return {
       'ClaudeCodeSelectModel', 'ClaudeCodeDiffAccept', 'ClaudeCodeDiffDeny',
     },
     keys = {
-      { '<leader>Cc', '<cmd>ClaudeCode<cr>',             desc = 'Claude: toggle' },
-      { '<leader>Cf', '<cmd>ClaudeCodeFocus<cr>',        desc = 'Claude: focus' },
-      { '<leader>Cr', '<cmd>ClaudeCode --resume<cr>',    desc = 'Claude: resume' },
-      { '<leader>CC', '<cmd>ClaudeCode --continue<cr>',  desc = 'Claude: continue' },
-      { '<leader>Cm', '<cmd>ClaudeCodeSelectModel<cr>',  desc = 'Claude: select model' },
-      { '<leader>Cb', '<cmd>ClaudeCodeAdd %<cr>',        desc = 'Claude: add buffer' },
-      { '<leader>Cs', '<cmd>ClaudeCodeSend<cr>', mode = 'v', desc = 'Claude: send selection' },
-      { '<leader>Ca', '<cmd>ClaudeCodeDiffAccept<cr>',   desc = 'Claude: accept diff' },
-      { '<leader>Cd', '<cmd>ClaudeCodeDiffDeny<cr>',     desc = 'Claude: deny diff' },
+      { '<leader>dc', '<cmd>ClaudeCode<cr>',             desc = 'Claude: toggle' },
+      { '<leader>df', '<cmd>ClaudeCodeFocus<cr>',        desc = 'Claude: focus' },
+      { '<leader>dr', '<cmd>ClaudeCode --resume<cr>',    desc = 'Claude: resume' },
+      { '<leader>dC', '<cmd>ClaudeCode --continue<cr>',  desc = 'Claude: continue' },
+      { '<leader>dm', '<cmd>ClaudeCodeSelectModel<cr>',  desc = 'Claude: select model' },
+      { '<leader>db', '<cmd>ClaudeCodeAdd %<cr>',        desc = 'Claude: add buffer' },
+      { '<leader>ds', '<cmd>ClaudeCodeSend<cr>', mode = 'v', desc = 'Claude: send selection' },
+      { '<leader>da', '<cmd>ClaudeCodeDiffAccept<cr>',   desc = 'Claude: accept diff' },
+      { '<leader>dd', '<cmd>ClaudeCodeDiffDeny<cr>',     desc = 'Claude: deny diff' },
     },
     config = true,
   },

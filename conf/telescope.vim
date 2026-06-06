@@ -44,16 +44,16 @@ nnoremap <leader>tgd <cmd>lua require('telescope.builtin').keymaps()<cr>
 nnoremap mm   <cmd>lua require('telescope').extensions.harpoon.marks()<cr>
 
 " dap
-nnoremap <leader>db <cmd>lua require('telescope').extensions.dap.list_breakpoints()<CR>
+nnoremap <leader>xb <cmd>lua require('telescope').extensions.dap.list_breakpoints()<CR>
 
-nnoremap <leader>dc <cmd>lua require('telescope').extensions.dap.commands()<CR>
-nnoremap <leader>dv <cmd>lua require('telescope').extensions.dap.variables()<CR>
-nnoremap <leader>df <cmd>lua require('telescope').extensions.dap.frames()<CR>
+nnoremap <leader>xc <cmd>lua require('telescope').extensions.dap.commands()<CR>
+nnoremap <leader>xv <cmd>lua require('telescope').extensions.dap.variables()<CR>
+nnoremap <leader>xf <cmd>lua require('telescope').extensions.dap.frames()<CR>
 
-nnoremap <leader>dcf <cmd>lua require('telescope').extensions.dap.configurations()<CR>
+nnoremap <leader>xcf <cmd>lua require('telescope').extensions.dap.configurations()<CR>
 
 " todo
-nnoremap <leader>dd <cmd>TodoTelescope<CR>
+nnoremap <leader>tt <cmd>TodoTelescope<CR>
 
 " arerial
 "
