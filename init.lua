@@ -1,5 +1,4 @@
 -- Pre-plugin settings (mapleader MUST be set before lazy.setup)
-vim.g.did_load_filetypes = 1
 vim.cmd('source $HOME/.config/nvim/conf/settings.vim')
 
 -- Bootstrap lazy.nvim

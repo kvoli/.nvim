@@ -74,7 +74,7 @@ local on_attach = function(client, bufnr)
       padding = '',
       shadow_blend = 0,
       shadow_guibg = 'Black',
-      timer_interval = 200,
+      timer_interval = 500,
       doc_lines = 20,
     })
   end
