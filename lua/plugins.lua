@@ -18,7 +18,6 @@ return {
   { 'tpope/vim-repeat', lazy = false },
   { 'jghauser/mkdir.nvim', lazy = false },
   { 'junegunn/vim-easy-align', lazy = false },
-  { 'antoinemadec/FixCursorHold.nvim', lazy = false },
   { 'AndrewRadev/splitjoin.vim', lazy = false },
   { 'iamcco/markdown-preview.nvim', lazy = false, build = 'cd app && yarn install' },
   { 'folke/todo-comments.nvim', lazy = false },
@@ -27,8 +26,6 @@ return {
   { 'kevinhwang91/nvim-ufo', lazy = false },
   { 'nvim-orgmode/orgmode', lazy = false },
   { 'nvim-tree/nvim-web-devicons', lazy = false },
-  { 'jackMort/ChatGPT.nvim', lazy = false },
-  { 'MunifTanjim/nui.nvim', lazy = false },
   {
     dir = '/Users/kvoli/Documents/projects/leetcode.nvim',
     lazy = false,
@@ -89,9 +86,8 @@ return {
   { 'styled-components/vim-styled-components', lazy = false, branch = 'main' },
   { 'mickael-menu/zk-nvim', lazy = false },
 
-  -- syntax
-  { 'vim-syntastic/syntastic', lazy = false },
-  { 'sheerun/vim-polyglot', lazy = false },
+  -- syntax (treesitter + LSP + none-ls cover linting/highlight; polyglot and
+  -- syntastic removed to avoid duplicate BufEnter/CursorHold work)
 
   -- fuzzy finder
   { 'junegunn/fzf', lazy = false, build = function() vim.fn['fzf#install']() end },
