@@ -100,8 +100,8 @@ return {
   { 'honza/vim-snippets', lazy = false },
   { 'L3MON4D3/LuaSnip', lazy = false },
 
-  -- treesitter
-  { 'nvim-treesitter/nvim-treesitter', lazy = false, build = ':TSUpdate' },
+  -- treesitter (pinned to master; main branch requires nvim 0.12+)
+  { 'nvim-treesitter/nvim-treesitter', lazy = false, branch = 'master', build = ':TSUpdate' },
   { 'm-demare/hlargs.nvim', lazy = false },
 
   -- lsp
