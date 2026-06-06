@@ -88,14 +88,30 @@ local lsp_opts = {
 pcall(function() require("mason").setup() end)
 pcall(function() require("mason-lspconfig").setup() end)
 
+local server_overrides = {
+  basedpyright = {
+    before_init = function(_, config)
+      local root = config.root_dir or vim.fn.getcwd()
+      local venv_python = root .. '/.venv/bin/python'
+      local python_path = vim.fn.executable(venv_python) == 1
+        and venv_python
+        or vim.fn.expand('~/.local/bin/python')
+      config.settings = vim.tbl_deep_extend('force', config.settings or {}, {
+        python = { pythonPath = python_path },
+      })
+    end,
+  },
+}
+
 local servers = {
   'gopls', 'dockerls', 'bashls', 'html', 'lua_ls',
-  'marksman', 'jedi_language_server', 'sqlls', 'taplo', 'yamlls',
+  'marksman', 'sqlls', 'taplo', 'yamlls', 'basedpyright',
 }
 
 for _, server in ipairs(servers) do
   pcall(function()
-    vim.lsp.config(server, lsp_opts)
+    local opts = vim.tbl_deep_extend('force', lsp_opts, server_overrides[server] or {})
+    vim.lsp.config(server, opts)
     vim.lsp.enable(server)
   end)
 end
@@ -124,10 +140,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local null_ls_ok, null_ls = pcall(require, "null-ls")
 if null_ls_ok then
+  -- proselint sources removed: shell out on every TextChanged in prose files.
   null_ls.setup({
     sources = {
-      null_ls.builtins.diagnostics.proselint,
-      null_ls.builtins.code_actions.proselint,
       null_ls.builtins.hover.printenv,
     },
   })
