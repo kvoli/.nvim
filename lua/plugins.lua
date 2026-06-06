@@ -21,7 +21,8 @@ return {
   { 'AndrewRadev/splitjoin.vim', lazy = false },
   { 'iamcco/markdown-preview.nvim', lazy = false, build = 'cd app && yarn install' },
   { 'folke/todo-comments.nvim', lazy = false },
-  { 'stevearc/aerial.nvim', lazy = false },
+  -- pinned to nvim-0.11 branch: master dropped support for Neovim <0.12
+  { 'stevearc/aerial.nvim', lazy = false, branch = 'nvim-0.11' },
   { 'kevinhwang91/promise-async', lazy = false },
   { 'kevinhwang91/nvim-ufo', lazy = false },
   { 'nvim-orgmode/orgmode', lazy = false },
